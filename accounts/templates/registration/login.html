@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TRII</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/5b2950053f.js"></script>
@@ -29,6 +29,7 @@
     background-color:rgba(220,220,220,0.4);
     /* overflow:hidden; */
   }
+
 
   .formclass{
     width: 100%;
@@ -98,7 +99,7 @@
     width:100%;
     font-weight: 500;
     float:left;
-    margin-top:20px;
+    margin-top:25px;
   }
 
   .signupbtn:focus{
@@ -106,18 +107,56 @@
     opacity:0.8;
   }
 
+  @media (max-width: 800px) {
+      .supform {
+        width: 90% !important;
+        margin: 20px !important;
+        margin-top:10vh !important;
+        padding: 10px;
+        border: 1px double #e2e2e2;
+      }
+  
+      .formclass {
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 7px;
+      }
+      .signupbtn {
+        display: block;
+        padding: 10px 8px;
+        font-size: 15px;
+        width: 100%;
+        margin: auto;
+        margin-top:15px;
+        margin-bottom:20px;
+      }
 
-  @media only screen and (max-width: 900px){
-    .signupblock1{
-      display:none;
-    }
-    #web_resp{
-      display:flex !important;
-      margin-top:50px;
-      margin-left:40px;
-    }
-  }
+      .topcol{
+        height: 50px;
+        width:76vw;
+        margin-top: 15px;
+        margin-left:25px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border-radius: 12px 12px 0px 0px;
+        opacity: 1;
+        color:black;
+        text-decoration:none;
+        font-weight:600;
+      }
 
+      .topcol a{
+        color:black;
+        font-size:1rem;
+        text-decoration:none;
+      }
+      .sgncol,.lgncol{
+        width:50%;
+      }
+
+      .sgnbtmbrd{
+        width:25vw;
+      }
+    }
 
 
   </style>
