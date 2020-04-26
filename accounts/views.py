@@ -109,7 +109,7 @@ def login_user(request):
             profile = Profile.objects.filter(user_id=obj).first()
             if profile is not None:
                 if profile.full_name != '' and profile.full_name!=None:
-                    return HttpResponseRedirect('/tools/')
+                    return HttpResponseRedirect('/')
             return HttpResponseRedirect('/')
         else:
             val=3
