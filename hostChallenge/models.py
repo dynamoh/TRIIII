@@ -5,4 +5,7 @@ class ContactUs(models.Model):
     name = models.CharField(max_length=500)
     email = models.EmailField()
     phone = models.CharField(max_length=10)
-    
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
