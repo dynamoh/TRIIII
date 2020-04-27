@@ -39,7 +39,7 @@
     }
 
     .navbar{
-        background: transparent !important;
+        background-color:black !important;
         z-index:50 !important;
 
     }
@@ -148,9 +148,6 @@
         outline:none;
     }
 
-    .bannerVideoWrapper{
-        background: transparent;
-    }
 
     .lineSeperator{
         border-bottom: 1px solid #6D6D6D;
@@ -203,8 +200,8 @@
     }
   </style>
 
-  <body>
-  <div class="bannerVideoWrapper">
+<body>
+<div class="bannerVideoWrapper">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container pos-f-t headerNavbar clearfix">
         <h4 class="navbar-brand" style="color:white;padding-top:5px;" >TRIIII</h4>
@@ -263,30 +260,11 @@
         </div>
         </div>
     </nav>
-    <div class="lineSeperator"></div>
-    <div class="bannerVideo">
-        <div class="layerScreen"></div>
-        <div id="carouselExampleControlsTwo" class="carousel slide videoCarousel largeView" data-ride="carousel" data-interval="false">
-            <div class="carousel-inner"> 
-                <div class="carousel-item active">
-                    <div class="container">
-                        <div class="videoText">
-                            <h4>TRIIIi – Accelerating Growth Of New India’s Innovations</h4>
-                            <p>The National Technology Commercialization Program to help take your innovations to market. An initiative by the Office of the Principal Scientific Adviser to the Government of India.</p>
-                            <div class="bannerBtn clearfix">
-                                <button class="btn TriiiiBtn mr-3 pull-left" type="submit">INNOVATION SHOWCASE</button>
-                            </div>
-                        </div>
-                    </div>
-                    <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
-                        <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
-                    </video>
-
-                </div>  
-            </div>
-        </div>
-    </div>
 </div>   
+
+    {% block content %}
+
+    {% endblock %}
 
   </body>
 

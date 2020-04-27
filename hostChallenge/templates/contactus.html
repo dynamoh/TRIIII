@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .container h3{
+        text-align:center;
+        font-family: 'roboto', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 50px;
+        line-height: 29px;
+        color: #000000;
+        padding-top: 10px; 
+        /* border-top: 1px solid #d5d5d5; */
+        margin-top: 20px;
+        margin-bottom: 0px; 
+    }
+
+    .mapClass{
+        margin-top:45px;
+    }
+
+    .contactInfo{
+        margin-top:130px;
+        margin-right:auto;
+        margin-left:auto;
+    }
+
+    .embededMap{
+        width:600px;
+        height:450px;
+    }
+
+    @media (max-width:800px) {
+        .contactInfo{
+            margin-top:30px;
+            margin-right:auto;
+            margin-left:auto;
+        }
+
+        .embededMap{
+            width:90vw;
+            height:40vh;
+        }
+    }
+
+
+</style>
+
+<div class="container">
+    <h3>Contact Us</h3>
+    <div class="row">
+        <div class="col-sm mapClass">
+            <iframe class="embededMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.808681770997!2d75.77959261504284!3d26.814219783170113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDQ4JzUxLjIiTiA3NcKwNDYnNTQuNCJF!5e0!3m2!1sen!2sin!4v1587976442613!5m2!1sen!2sin"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+
+        <div class="col-sm contactInfo" align="center">
+            <h4>Address</h4>
+            <p> Plot No. 6 Nagmani Coloney,Nagar Nigam Road <br/> Behind SBBJ Bank,Sanganer <br/> Jaipur, Rajasthan (302029) </p>
+            <h4> Contact </h4>
+            <p> +91 82396 07462 | +91 7976618532 </p>
+            <h4> Email </h4>
+            <p> Openinno7@gmail.com | triiii@gmail.com </p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
