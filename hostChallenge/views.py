@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import ContactUs
+from .models import ContactUs,Blog
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def landingPage(request):
@@ -13,3 +14,6 @@ def ContactUsPage(request):
         message = request.POST.get('message')
         ContactUs.objects.create(name = name,email=email,phone=phone,message=message)
     return render(request,'contactus.html')
+
+def blogsPage(request):
+    return render(request,'blogs.html')

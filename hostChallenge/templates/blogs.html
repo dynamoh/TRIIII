@@ -1,0 +1,427 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style>
+element.style {
+    background: linear-gradient(to bottom, rgba(256, 256, 256, 0.6),rgba(256, 256, 256, 0.2)),url(https://www.viima.com/hubfs/Banners_and_backgrounds/viima-pink-ball-bg.jpg);
+}
+
+body{
+    overflow-x:hidden;
+}
+
+.hero-banner-slim:first-child {
+    width: 100%;
+    padding-bottom: 35%;
+    background-position: center !important;
+}
+
+.frontpage-hero, .hero-banner-slim {
+    max-width: none;
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 100%;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    position: relative;
+}
+
+h1.hero-header {
+    font-weight: 700;
+    font-size: 3em;
+    line-height: 1.2em;
+    letter-spacing: 0.5px;
+    font-family: Source Sans Pro, Noto Sans,Helvetica,Arial,sans-serif;
+}
+
+h2.hero-sub-header {
+    margin: 0;
+    font-size: 1.2em;
+    color: #666;
+    font-weight: bold;
+    line-height: 1.2em;
+    padding-top: 10px;
+}
+
+.imgText{
+    position:absolute;
+    margin-top:22vh;
+    margin-left:40vw;
+    text-align:center;
+}
+
+.TriiiiBtn{
+    font-size: 14px;
+    border-radius: 0;
+    border: none;
+    padding: 6px 15px;
+    background-color: #EA4B32;
+    color: #fff;
+    font-family: 'roboto', sans-serif;
+    font-weight: 800 !important;
+    width:220px;
+    margin-top:25px;
+}
+
+.TriiiiBtn:hover{
+    color: #fff;
+    background: #C02E16;
+    outline:none;
+}
+
+.TriiiiBtn:focus{
+    outline:none !important;
+    border:none !important;
+    background-color: #C02E16 !important;
+}
+
+.blog .blog-topic-list-container {
+    text-align: center;
+    margin: 0 1rem 2rem 1rem;
+}
+
+.blog-topic-list-container .pill {
+    font-weight: bold;
+    margin: 0.5rem 0.8rem;
+    text-decoration: none !important;
+    transition: 0.3s all;
+}
+
+.blog-topic-list-container {
+    margin-top:10vh;
+}
+
+.blog-topic-list-container .pill.selected:hover {
+    background-color: #1cb5f2 !important;
+    color: white !important;
+}
+
+.blog-topic-list-container .pill:hover {
+    background-color: #1cb5f2 !important;
+    color: white !important;
+}
+
+.pill {
+    display: inline-block;
+    height: 32px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0,0,0,0.6);
+    line-height: 32px;
+    padding: 0 12px;
+    border-radius: 16px;
+    background-color: #e4e4e4;
+}
+
+.blog-post-item-card .card {
+    border-radius: 15px;
+}
+
+.card {
+    position: relative;
+    margin: 0.5rem 0 1rem 0;
+    background-color: #fff;
+    transition: box-shadow .25s;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.blog-post-item-card .card-image {
+    background: linear-gradient(to bottom right, #1cb5f2, #bbb);
+    height: 340px;
+    border-radius: 15px 15px 0 0;
+}
+
+.card .card-image {
+    position: relative;
+    overflow:auto;
+}
+
+a {
+    color: #1cb5f2;
+    text-decoration: none;
+}
+
+a {
+    background-color: transparent;
+}
+
+.blog-post-item-card .card-image .blog-card-preview-image {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    height: auto;
+    opacity: 0.5;
+    border-radius: 15px 15px 0 0;
+}
+
+.card .card-image .card-title {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.blog-post-item-card .card-title {
+    height: 100%;
+    font-weight: 700;
+    transition: 0.5s all;
+    overflow: hidden;
+    {% comment %} background: linear-gradient(#1cb5f2, #1cb5f2) no-repeat -550px 0; {% endcomment %}
+    border-radius: 15px 15px 0 0;
+}
+
+.card .card-title {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.row-fluid {
+    width: 100%;
+    *zoom: 1;
+}
+
+.blog-post-item-card .author-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 10px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.blog-post-item-card .card-image img.author-profile-pic {
+    border-radius: 40px;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.card .card-image img {
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: bottom;
+}
+
+.blog-post-item-card .card-image .author-name {
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    display: inline-block;
+    line-height:40px;
+}
+
+.blog-post-item-card .card-action {
+    border-radius: 0 0 15px 15px;
+}
+
+.card .card-action {
+    position: relative;
+    background-color: inherit;
+    border-top: 1px solid rgba(160,160,160,0.2);
+    padding: 20px;
+    z-index: 2;
+}
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top:60px;
+}
+
+.col.l6 {
+    width: 50%;
+    /* margin-left: auto; */
+    left: auto;
+    right: auto;
+}
+
+@media (max-width:800px) {
+    .imgText{
+        position:absolute;
+        margin-top:2vh;
+        margin-left:15vw;
+        text-align:center;
+    }
+
+    .hero-banner-slim{
+        height:50vh;
+    }
+
+    .col.l6 {
+        width: 100%;
+        /* margin-left: auto; */
+        left: auto;
+        right: auto;
+    }
+
+    .blog-post-item-card .card-image {
+        background: linear-gradient(to bottom right, #1cb5f2, #bbb);
+        height: 240px;
+        border-radius: 15px 15px 0 0;
+    }
+}
+
+</style>
+
+
+
+    <div class="row-fluid ">
+        <div class="span12 hero-banner-slim " style="background: linear-gradient(to bottom, rgba(256, 256, 256, 0.6),rgba(256, 256, 256, 0.2)),url('https://www.viima.com/hubfs/Banners_and_backgrounds/viima-pink-ball-bg.jpg');" data-widget-type="cell" data-x="0" data-w="12">
+
+        <div class="span12" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+        <div class="row-fluid ">
+
+        <div class="imgText">
+            <h1 class="hero-header">Chronicles</h1>
+            <h2 class="hero-sub-header">Thoughts on leadership</h2><br/>
+            <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" type="submit" >Subscribe To Our Blog</button>
+        </div>
+
+
+        <div id="hs_form_target_form_680875575">
+
+        </span></div>
+
+
+        </div>
+
+        </div>
+    </div>
+
+    <div class="blog-topic-list-container" align="center">
+        <a href="#" class="pill topic-link">Innovation</a>
+        <a href="#" class="pill topic-link selected">Leadership</a>
+        <a href="#" class="pill topic-link">Culture</a>
+        <a href="#" class="pill topic-link selected">Materials</a>
+        <a href="#" class="pill topic-link">Machines</a>
+    </div>
+
+<div class="container row" >
+    <div class="blog-post-item-card col-sm-6">
+                    
+        <div class="">
+            <div class="card">
+                
+                <div class="card-image">
+                        <div class="blog-card-preview-image">
+                            <video class="blog-card-preview-image" width="100%" height="100%" controls="" autoplay="" muted="" loop="">
+                                <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
+                            </video>
+                        </div>
+                        <span class="card-title">
+                            The Fallacy of the Aha Moment &amp; Overnight Success in Innovation
+                            
+                        </span>
+                        <div class="author-info">
+                            <img class="author-profile-pic" src="https://app.hubspot.com/settings/avatar/ec6ec3b6e65506ca14734d4f1658e87b" alt="Jesse Nieminen">
+                            <span class="author-name">Jesse Nieminen</span>
+                        </div>
+                        
+                </div>
+                <div class="card-action">
+                    <a class="read-more-link" style="cursor:pointer;" data-toggle="modal" data-target="#myModal">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    
+                    <h4 class="modal-title">The Fallacy of the Aha Moment &amp; Overnight Success in Innovation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p><p>We’ve all heard the story of Newton and the apple.</p> 
+                    <p>According to the legend, he came up with the theory of gravity when he was sitting under a tree and an apple fell on his head, at which point it all suddenly dawned on him.</p> 
+                    <p>We love to hear stories of these great aha moments. The question is, are they true? Are innovations really born out of these miraculous moments of insight?</p> 
+                    <p>Let’s dig a...</p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="TriiiiBtn" style="width:100px;" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        
+    
+    </div>
+
+
+    <div class="blog-post-item-card col-sm-6">
+                    
+        <div class="">
+            <div class="card">
+                
+                <div class="card-image">
+                        <div class="blog-card-preview-image">
+                            <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
+                                <source src="{% static 'images/bankdetails.mp4' %}" type="video/mp4">
+                            </video>
+                        </div>
+                        <span class="card-title">The Fallacy of the Aha Moment &amp; Overnight Success in Innovation</span>
+                        <div class="author-info">
+                            <img class="author-profile-pic" src="https://app.hubspot.com/settings/avatar/ec6ec3b6e65506ca14734d4f1658e87b" alt="Jesse Nieminen">
+                            <span class="author-name">Jesse Nieminen</span>
+                        </div>
+                        
+                </div>
+
+                <div class="card-action">
+                    <a class="read-more-link" style="cursor:pointer;" data-toggle="modal" data-target="#myModal1">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="myModal1" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    
+                    <h4 class="modal-title">The Fallacy of the Aha Moment &amp; Overnight Success in Innovation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p><p>We’ve all heard the story of Newton and the apple.</p> 
+                    <p>According to the legend, he came up with the theory of gravity when he was sitting under a tree and an apple fell on his head, at which point it all suddenly dawned on him.</p> 
+                    <p>We love to hear stories of these great aha moments. The question is, are they true? Are innovations really born out of these miraculous moments of insight?</p> 
+                    <p>Let’s dig a...</p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="TriiiiBtn" style="width:100px;" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        
+    
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -35,8 +35,9 @@
         color: #fff !important;
         padding: 0px 10px;
         cursor: pointer;
-        font-weight:600;
+        font-weight:800 !important;
         text-transform:uppercase;
+        letter-spacing: 1px;
     }
 
     .navbar{
@@ -167,6 +168,10 @@
         border:none;
     }
 
+    .one{
+        margin-left:50px;
+    }
+
     @media (max-width: 800px) {
         .navbar{
             background-color: black !important;
@@ -175,6 +180,7 @@
 
         .one{
             margin-top:15px;
+            margin-left:0px;
         }
 
         .videoText {
@@ -238,7 +244,7 @@
                     <a class="nav-link" href="#">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Chronicles</a>
+                    <a class="nav-link" href="{% url 'BlogPage' %}">Chronicles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'ContactUS' %}">Contact Us</a>

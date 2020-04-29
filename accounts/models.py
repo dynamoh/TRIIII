@@ -117,7 +117,6 @@ class Profile(models.Model):
     user_id = models.OneToOneField(User,on_delete=models.CASCADE,related_name="UserProfile")
     full_name = models.CharField(max_length=1000)
     company_name = models.CharField(max_length=1000)
-    gstin = models.CharField(max_length=500)
     address = models.TextField()
     phone_number = models.CharField(max_length=12)
     avatar = models.ImageField()
