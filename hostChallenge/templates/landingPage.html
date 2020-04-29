@@ -92,7 +92,7 @@
         transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
     }
 
-    video {
+    img {
         object-fit: contain;
         width:100%;
         height:100%;
@@ -172,6 +172,10 @@
         margin-left:50px;
     }
 
+    video{
+        margin-top:100px;
+    }
+
     @media (max-width: 800px) {
         .navbar{
             background-color: black !important;
@@ -192,7 +196,7 @@
             margin-top:100px;
         }
 
-        video{
+        img{
             display:none;
         }
 
@@ -206,6 +210,14 @@
 
         .layerScreen{
             display:none;
+        }
+
+        .bannerVideo{
+            height:auto !important;
+        }
+
+        video{
+            margin-top:60px;
         }
     }
   </style>
@@ -281,19 +293,24 @@
                             <h4>TRIIIi – Accelerating Growth Of New India’s Innovations</h4>
                             <p>The National Technology Commercialization Program to help take your innovations to market. An initiative by the Office of the Principal Scientific Adviser to the Government of India.</p>
                             <div class="bannerBtn clearfix">
-                                <button class="btn TriiiiBtn mr-3 pull-left" type="submit">INNOVATION SHOWCASE</button>
+                                <button class="btn TriiiiBtn mr-3 pull-left" type="submit">Launch Challenge</button>
+                                <button class="btn TriiiiBtn mr-3 pull-left" type="submit">Solve Challenge</button>
                             </div>
                         </div>
                     </div>
-                    <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
-                        <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
-                    </video>
-
+                   
+                    <img src="{% static 'images/battlebots.jpg' %}">
                 </div>  
             </div>
         </div>
     </div>
-</div>   
+    </div>   
+
+    <div class="container">
+        <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
+            <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
+        </video> 
+    </div>
 
   </body>
 
