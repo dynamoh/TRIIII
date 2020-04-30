@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .section-header{
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 35px;
+        }
+
+        .blogD {
+            float: none;
+            max-width: 1080px;
+            margin: 70px auto;
+            width: 70%;
+        }
+
+        .blogDate {
+            height: 40px;
+            line-height: 40px;
+            font-weight: bold;
+            color: #999;
+        }
+
+        .author-img {
+            border-radius: 40px;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+        }
+
+        .author-name {
+            color: #999;
+            font-weight: bold;
+            margin-left: 10px;
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .tag {
+            font-weight: 700 !important;
+            color: #777 !important;
+            margin: 5px 0 0 0;
+        }  
+
+        .tag {
+            display: inline-block;
+            height: 32px;
+            font-size: 13px;
+            font-weight: 700 !important;
+            color: rgba(0,0,0,0.6);
+            line-height: 32px;
+            padding: 0 12px;
+            border-radius: 16px;
+            background-color: #e4e4e4;
+            cursor:pointer;
+        }  
+
+        .tag:hover {
+            color: #1cb5f2 !important;
+            text-decoration: none;    
+        }
+
+        .content {
+            color: #666;
+            font-family: Noto Sans,Helvetica,Arial,sans-serif;
+            margin-top:30px;
+        }
+
+        .video{
+            margin:30px 5px;
+        }
+
+        @media (max-width:800px) {
+            .blogD {
+                float: none;
+                max-width: 1080px;
+                margin: 70px auto;
+                width: 90%;
+            }
+
+            video{
+                margin:30px 5px;
+                margin-left:-25px;
+                height:auto !important;
+                width:80vw !important;
+                display:grid;
+            }
+        }
+
+    </style>
+
+    <div class="container blogD">
+    <div class="container">
+        <h1 class="section-header"> {{blog.title}} </h1>
+        <p class="blogDate"> {{blog.datePosted}} </p>
+        <div class="authorInfo">
+            <img class="author-img" src="/media/{{blog.author.avatar}}" />
+            <p class="author-name" > {{blog.author.full_name}} </p>
+        </div>
+        <a class="tag" > {{blog.tags}} </a>
+        <div class="video">
+            <video width="100%" height="100%" controls="" muted="" loop="">
+                <source src="/media/{{blog.video}}" type="video/mp4">
+            </video> 
+        </div>
+        <p class="content"> {{blog.content}} </p>
+
+        
+    </div>
+    </div>
+
+{% endblock %}

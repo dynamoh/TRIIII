@@ -3,6 +3,16 @@ from accounts.models import User,Profile
 from django.template.defaultfilters import slugify
 
 # Create your models here.
+class Constants:
+    TAGS = (
+        ('Machine','Machine'),
+        ('Machine','Machine'),
+        ('Machine','Machine'),
+        ('Machine','Machine'),
+        ('Machine','Machine'),
+    )
+
+
 class ContactUs(models.Model):
     name = models.CharField(max_length=500)
     email = models.EmailField()
@@ -18,6 +28,8 @@ class Blog(models.Model):
     video = models.FileField()
     author = models.ForeignKey(Profile,on_delete=models.CASCADE)
     slug = models.SlugField()
+    datePosted = models.DateField(auto_now_add=True)
+    tags = models.CharField(max_length=100,choices = Constants.TAGS)
 
     def __str__(self):
         return self.title

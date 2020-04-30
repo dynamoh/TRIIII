@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import ContactUs,Blog
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -16,4 +17,14 @@ def ContactUsPage(request):
     return render(request,'contactus.html')
 
 def blogsPage(request):
-    return render(request,'blogs.html')
+    blogs = Blog.objects.all()
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+
+    return render(request,'blogs.html',{'blogs':blogs})
+
+def blogsDetailPage(request,slug):
+    blog_obj = get_object_or_404(Blog, slug=slug)
+    print(blog_obj)
+    return render(request,'blogsDetail.html',{'blog':blog_obj})
