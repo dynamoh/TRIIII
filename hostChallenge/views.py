@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import ContactUs,Blog
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -19,8 +20,12 @@ def ContactUsPage(request):
 def blogsPage(request):
     blogs = Blog.objects.all()
     if request.method == 'POST':
-        title = request.POST.get('title')
-        content = request.POST.get('content')
+        filterBlog = request.POST.get('filterBlog')
+        searchBlog = request.POST.get('searchBlog')
+        if filterBlog!='' and filterBlog is not None:
+            blogs = Blog.objects.filter(tags=filterBlog)
+        else:
+            blogs = Blog.objects.filter(Q(title__icontains = searchBlog)|Q(content__icontains = searchBlog))
 
     return render(request,'blogs.html',{'blogs':blogs})
 

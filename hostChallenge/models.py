@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 class Constants:
     TAGS = (
         ('Machine','Machine'),
-        ('Machine','Machine'),
+        ('Materials','Materials'),
         ('Machine','Machine'),
         ('Machine','Machine'),
         ('Machine','Machine'),
