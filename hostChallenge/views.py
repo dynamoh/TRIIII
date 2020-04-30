@@ -1,11 +1,35 @@
 from django.shortcuts import render
-from .models import ContactUs,Blog
+from accounts.models import Profile
+from .models import ContactUs,Blog,Challenges
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def landingPage(request):
+    if request.method=='POST':
+        title = request.POST.get('title')
+        category = request.POST.get('category')
+        description = request.POST.get('description')
+        summary = request.POST.get('summary')
+        challenge_file = request.FILES.get('challengefile')
+        posted_by = Profile.objects.filter(user_id=request.user).first()
+        print(request.user)
+        if challenge_file != "" and challenge_file is not None:
+            Challenges.objects.create(title=title,
+                                    category=category,
+                                    summary=summary,
+                                    description=description,
+                                    posted_by=posted_by,
+                                    challenge_file=challenge_file)
+        else:
+            Challenges.objects.create(title=title,
+                                    category=category,
+                                    summary=summary,
+                                    posted_by=posted_by,
+                                    description=description)
+        return HttpResponseRedirect('/')
     return render(request,'landingPage.html')
 
 def ContactUsPage(request):

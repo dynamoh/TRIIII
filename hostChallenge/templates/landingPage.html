@@ -242,6 +242,19 @@
         width:15vw !important;
     }
 
+    .author-img {
+        border-radius: 40px;
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+    }
+
+    label {
+        font-weight:800;
+        font-family: 'roboto', sans-serif;
+        letter-spacing:1px;
+    }
+
     @media (max-width: 800px) {
         .navbar{
             background-color: black !important;
@@ -328,7 +341,11 @@
                     <a class="nav-link" href="{% url 'ContactUS' %}">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'loginpage' %}">Login | SignUp</a>
+                    {% if user.is_authenticated %}
+                        <a class="nav-link" >{{user.username}}</a>
+                    {% else %}
+                        <a class="nav-link" href="{% url 'loginpage' %}">Login | SignUp</a>
+                    {% endif %}
                 </li>
 
                 {% comment %} <li class="nav-item dropdown">
@@ -359,18 +376,98 @@
                             <h4>TRIIIi – Accelerating Growth Of New India’s Innovations</h4>
                             <p>The National Technology Commercialization Program to help take your innovations to market. An initiative by the Office of the Principal Scientific Adviser to the Government of India.</p>
                             <div class="bannerBtn clearfix">
-                                <button class="btn TriiiiBtn mr-3 pull-left" type="submit">Launch Challenge</button>
+                                <button class="btn TriiiiBtn mr-3 pull-left" data-toggle="modal" data-target=".bd-example-modal-lg" >Launch Challenge</button>
                                 <button class="btn TriiiiBtn mr-3 pull-left" type="submit">Solve Challenge</button>
                             </div>
                         </div>
                     </div>
-                   
                     <img src="{% static 'images/battlebots.jpg' %}">
                 </div>  
             </div>
         </div>
     </div>
-    </div>   
+    </div> 
+    {% if user.is_authenticated %}
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Launch a Challenge</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form enctype="multipart/form-data" method="POST">{% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Challenge Title</label>
+                                <input type="text" name="title" required class="form-control" placeholder="Enter Challenge title">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Challenge Category</label>
+                                <input type="text" name="category" required class="form-control" placeholder="Enter Challenge Category">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Challenge Description</label>
+                                <textarea name="description" rows="8" col="80" required class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Challenge Summary</label>
+                                <textarea name="summary" rows="8" col="80" required class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Challenge File</label>
+                                <input type="file" name="challengefile" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                
+                                <button class="btn TriiiiBtn mr-3 pull-left" style="margin-top:30px;width:200px;" type="submit">Launch Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" align="center">
+                <p><b> You are not authenticated. <br/> Please Login to Launch a Challenge </b> </p>
+                <a class="TriiiiBtn" style="width:25vw !important;"  href="{% url 'loginpage' %}" >Login</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
     <div class="container">
         <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
