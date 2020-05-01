@@ -57,3 +57,7 @@ def blogsDetailPage(request,slug):
     blog_obj = get_object_or_404(Blog, slug=slug)
     print(blog_obj)
     return render(request,'blogsDetail.html',{'blog':blog_obj})
+
+
+def aboutusPage(request):
+    return render(request,'aboutus.html')

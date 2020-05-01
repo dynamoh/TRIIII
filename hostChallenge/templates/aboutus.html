@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+<style>
+    .page-block--image.hello {
+        background-image: url('{% static 'images/battlebots.jpg' %}');
+        background-position: 0 55%;
+        height: 550px;
+    }
+
+    .page-block--image {
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        height: 850px;
+    }
+
+    .page-block {
+        position: relative;
+        margin: 0;
+        display: inline-block;
+        width: 100%;
+        background-color: #fff;
+    }
+
+    .container-flex {
+        max-width: 1040px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .color-callout.navy, .image-callout.navy {
+        background-color: #00007d;
+    }
+
+    .color-callout--pull-up, .image-callout--pull-up {
+        margin-top: -75px;
+    }
+
+    .color-callout, .image-callout {
+        color: #FFFFFF;
+        position: relative;
+        text-align: center;
+        border-radius: 0;
+        margin-bottom: 75px;
+        z-index: 101;
+    }
+
+    .color-callout {
+        padding: 70px 100px;
+    }
+
+    .aboutusContent p {
+        font-family: 'PT Serif', serif;
+        font-size: 1.4rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-weight:normal;
+        width:90%;
+        margin-left:5%;
+    }
+
+    @media (max-width:800px) {
+            .page-block--image.hello {
+            background-image: url('{% static 'images/battlebots.jpg' %}');
+            height: 50vh;
+            width:100vw;
+        }
+
+        .page-block--image {
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            height: 50vh;
+        }
+
+        .page-block {
+            position: relative;
+            margin: 0;
+            display: inline-block;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        .container-flex {
+            max-width: 75vw;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .color-callout.navy, .image-callout.navy {
+            background-color: #00007d;
+        }
+
+        .color-callout--pull-up, .image-callout--pull-up {
+            margin-top: -75px;
+        }
+
+        .color-callout, .image-callout {
+            color: #FFFFFF;
+            position: relative;
+            text-align: center;
+            border-radius: 0;
+            margin-bottom: 75px;
+            z-index: 101;
+        }
+
+        .color-callout {
+            padding: 40px 10px;
+        }
+
+        .color-callout__content p {
+            font-size:16px !important;
+        }
+    }
+
+
+</style>
+
+    <div>
+        <section class="page-block page-block--image hello"></section>
+        <section class="page-block">
+            <div class="container-flex">
+                <div class="color-callout navy color-callout--pull-up">
+                    <div class="color-callout__content type-xl--serif">
+                        <p style="font-size:34px;">
+                            A  ​Smart Way to Grow Your Business and solve the problems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container aboutusContent">
+        <p>TRIIII is a crowdsourcing and ​Open Innovation Marketplace that connects          organizations seeking solutions to important challenges they face with an unrivaled           network of expert problem solvers. both experts from within your industry, but more             importantly experts from outside of your industry that can offer diverse perspectives            and fresh insight. Through Open Innovation, we are going to solve these your industry              problems by finding new innovative technology and better ideas by using the wisdom             of crowds.  
+            <br /><br />
+            We are solving manufacturing business problems in a fast, cost-effective and efficient manner. It creates a win-win situation for both problem seekers as well as problem solvers. Open innovation is changing the world and it is time to make use and take advantage of new innovative technology through Open Innovation and crowdsourcing. 
+            <br/><br />
+            We help industry solve the important problems that occurs in your business by connecting them, expert problem solver </p>
+        <div class="row" style="width:90%;margin-left:5%">
+            <div class="col-sm-6">
+                <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
+                    <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
+                </video> 
+            </div>
+
+            <div class="col-sm-6">
+                <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
+                    <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
+                </video> 
+            </div>
+        </div>
+
+        <div style="width:90%;margin-left:5%;margin-top:65px;">
+            <h2>Types of challenges  </h2><br /><br />
+            <h4>FUNDING </h4>
+            <p>In our funding program, we provide our customer demand with a suitable loan amount to the solutions.</p>                          
+            <br />
+            <h4>NON FUNDING </h4>
+            <p>In our non-funding program we provide only solutions to the seeker to grow your business.</p>  
+        </div>
+    
+    </div>
+
+{% endblock %}
