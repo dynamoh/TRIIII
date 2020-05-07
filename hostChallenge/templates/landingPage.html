@@ -28,7 +28,7 @@
         cursor: pointer;
     }
 
-    .nav-link{
+    .nav-link,.navvvlink{
         font-family: 'roboto', sans-serif;
         font-size: 14px;
         line-height: 14px;
@@ -41,7 +41,7 @@
     }
 
     .navbar{
-        background: transparent !important;
+        background-color: black !important;
         z-index:50 !important;
 
     }
@@ -299,6 +299,10 @@
             margin-top:60px;
         }
     }
+
+    body{
+        font-family: 'PT Serif', serif !important;
+    }
   </style>
 
   <body>
@@ -340,13 +344,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'ContactUS' %}">Contact Us</a>
                 </li>
+                {% if user.is_authenticated %}
                 <li class="nav-item">
-                    {% if user.is_authenticated %}
-                        <a class="nav-link" >{{user.username}}</a>
-                    {% else %}
-                        <a class="nav-link" href="{% url 'loginpage' %}">Login | SignUp</a>
-                    {% endif %}
+                    <a class="nav-link" href="{% url 'ProfilePage' %}" >{{user.username}} </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logoutpage' %}" >Logout </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" > <a class="navvvlink" href="{% url 'loginpage' %}" >Login</a> | <a class="navvvlink" href="{% url 'signuppage' %}" >SignUp</a> </a>
+                </li>
+                {% endif %}
 
                 {% comment %} <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -365,7 +374,6 @@
         </div>
         </div>
     </nav>
-    <div class="lineSeperator"></div>
     <div class="bannerVideo">
         <div class="layerScreen"></div>
         <div id="carouselExampleControlsTwo" class="carousel slide videoCarousel largeView" data-ride="carousel" data-interval="false">

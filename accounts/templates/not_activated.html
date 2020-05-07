@@ -1,18 +1,8 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TRIIII</title>
-<link rel="shortcut icon" type="image/png" href="{% static 'images/genesiS_LOGO@2x.png' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://use.fontawesome.com/5b2950053f.js"></script>
-    <link rel="stylesheet" href="{% static 'css/auth.css' %}"></link>
-  </head>
-
-
-
-  <body>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}"></link>
     <div class="rightsec">
       <div id="signinform" align="center">
         <div class="supform">
@@ -27,5 +17,4 @@
         </div>
       </div>
     </div>
-  </body>
-</html>
+{% endblock %}

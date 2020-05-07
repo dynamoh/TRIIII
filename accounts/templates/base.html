@@ -18,11 +18,6 @@
   </head>
 
   <style>
-
-    body{
-        font-family: 'PT Serif', serif !important;
-    }
-
     .nav-item{
         font-family: 'roboto', sans-serif;
         font-size: 1em;
@@ -31,6 +26,10 @@
         font-weight:400;
         padding: 10px 5px;
         cursor: pointer;
+    }
+
+    body{
+        font-family: 'PT Serif', serif !important;
     }
 
     .nav-link,.navvvlink{
@@ -278,11 +277,7 @@
 <div class="bannerVideoWrapper">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container pos-f-t headerNavbar clearfix">
-        <img height="40" width="40" src="{% static 'images/logo.jpeg' %}">
-        <h4 class="navbar-brand" style="color:white;padding-top:5px;" >
-           
-            TRIIII
-        </h4>
+        <h4 class="navbar-brand" style="color:white;padding-top:5px;" >TRIIII</h4>
         <button class="navbar-toggler" style="position:relative;"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span style="position:absolute;right:-90px !important;top:-10px;" class="navbar-toggler-icon"></span>
         </button>
@@ -317,7 +312,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'ContactUS' %}">Contact Us</a>
                 </li>
-                
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'ProfilePage' %}" >{{user.username}} </a>
@@ -330,7 +324,6 @@
                     <a class="nav-link" > <a class="navvvlink" href="{% url 'loginpage' %}" >Login</a> | <a class="navvvlink" href="{% url 'signuppage' %}" >SignUp</a> </a>
                 </li>
                 {% endif %}
-                
 
                 {% comment %} <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

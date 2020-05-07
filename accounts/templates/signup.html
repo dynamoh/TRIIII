@@ -1,25 +1,24 @@
-
-
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>TRIIII</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://use.fontawesome.com/5b2950053f.js"></script>
-    <link rel="stylesheet" href="{% static 'css/auth.css' %}"></link>
-  </head>
-
-  <body>
-    
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}"></link>
 <div class="rightsec">
   <div id="signinform" >
+    <h2 class="mainhead">Please Log In or Register to continue</h2>
+    <div class="leftSec" >
+      <h3>SignUp with TRIIII</h3>
+      <p>Register Yourself and become a part of community that is going to change the lives of billions people and make it a better place.</p>
+      <img src="{% static 'images/sgp.jpg' %}" ><br/>
+      <input required class="termsandcondition" id="tmcbox" type="checkbox" >
+      <label class="lbc">I have read and agree to the TRIIII Terms of Use.</label><br/>
+      <p style="color:red;font-size:1em;margin-left:14vw;display:none;" id="tmcc" >You have to accept the TRIIII Terms of use in order to continue.</p>
+      <input required class="newsletter" type="checkbox" >
+      <label class="lbc">I would like to receive notifications of new Challenges.</label>
+    </div>
 
     <div class="supform" >
 
-      <div class="row topcol" align="center">
+      {% comment %} <div class="row topcol" align="center">
         <div class="col-sm sgncol">
           <a href="{% url 'signuppage' %}">Sign up</a>
           <p class="sgnbtmbrd" ></p>
@@ -27,7 +26,7 @@
         <div class="col-sm lgncol">
           <a href="{% url 'loginpage' %}">Log in</a>
         </div>
-      </div>
+      </div> {% endcomment %}
 
       <div class="mainform">
         <form class="supformhtml" id="Signupform"  method="POST">{% csrf_token %}
@@ -43,7 +42,7 @@
             {% endfor %}
 
           {% endfor %}
-          <button type="submit" class="signupbtn" name="button">Create An Account</button>
+          <button type="submit" onclick="checkTerms();" class="signupbtn" name="button">Create An Account</button>
 
 
         </form>
@@ -59,11 +58,18 @@
 
   </div>
 </div>
+</div>
 
+  <script>
+    function checkTerms() {
+      var k = document.getElementById('tmcbox');
+      if(k.checked == true) {
+        $('.Signupform').submit();
+      } else {
+        document.getElementById('tmcc').style.display = "grid";
+      }
+    }
+  </script>
 
-
-    </div>
-  </body>
-</html>
-
+{% endblock %}
 

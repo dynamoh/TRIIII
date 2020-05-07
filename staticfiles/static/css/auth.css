@@ -1,13 +1,15 @@
 .supform{
     margin-top: 10vh;
     width: 31.5vw;
-    margin-left:34%;
+    margin-left:60%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.15);
+    box-shadow: 3px 3px 6px 6px #00000029;
+    border-radius: 12px;
     opacity: 1;
-    position:absolute;
+    position:relative;
     padding:35px;
     text-align: center;
+    padding-bottom: 60px;
   }
 
   body{
@@ -16,6 +18,51 @@
     /* overflow:hidden; */
   }
 
+  .mainhead{
+    text-align: center;
+    margin-top:40px;
+    font-size:2.2em;
+    font-weight: 800;
+  }
+
+  .leftSec img {
+    width:40%;
+    height:200px;
+    margin-left:16vw;
+  }
+
+  .leftSec h3,.leftSec p {
+    margin-left:9vw;
+    width:45vw;
+    box-sizing: border-box;
+    font-size:1.1em;
+  }
+
+  .leftSec h3{
+    margin-top:40px;
+    font-size: 1.8em;
+    font-weight: 800;
+  }
+
+  .leftSec{
+    position: absolute;
+  }
+  
+
+  .termsandcondition,.newsletter {
+    margin-left:10vw;
+    margin-top:30px;
+  }
+
+  .newsletter{
+    margin-top:2px;
+  }
+
+  .lbc {
+    font-weight: 600;
+    margin-top:-2px;
+    margin-left:5px;
+  }
 
   .formclass{
     width: 100%;
@@ -50,7 +97,7 @@
 
   .fgtpass{
     float:right;
-    color:#EA4B32;
+    color:#EA4B32 !important;
   }
 
   #Signupform{
@@ -87,11 +134,29 @@
     font-weight: 500;
     float:left;
     margin-top:25px;
+    margin-bottom:25px;
   }
 
   .signupbtn:focus{
     outline:none;
     opacity:0.8;
+  }
+
+  .eyebutton,.closedeyebutton{
+    position:absolute;
+    top:20px;
+    right:20px;
+    cursor:pointer;
+    display:grid;
+  }
+
+  .closedeyebutton{
+    display:none;
+    right:0px;
+  }
+
+  .lgpass{
+    position:relative;
   }
 
   @media (max-width: 800px) {
@@ -100,7 +165,25 @@
         margin: 20px !important;
         margin-top:10vh !important;
         padding: 10px;
-        border: 1px double #e2e2e2;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 3px 3px 6px 6px #00000029;
+        border-radius: 12px;
+        opacity: 1;
+        position:relative;
+        text-align: center;
+        padding-bottom: 60px;
+      }
+
+      .leftSec,.mainhead{
+        display:none;
+      }
+
+      .leftSec img {
+        margin-top: 2vh;
+        width:40%;
+        margin-left:5%;
+        position:absolute;
+        display:none;
       }
   
       .formclass {

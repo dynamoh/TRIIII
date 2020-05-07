@@ -61,3 +61,6 @@ def blogsDetailPage(request,slug):
 
 def aboutusPage(request):
     return render(request,'aboutus.html')
+
+def profilePage(request):
+    return render(request,'profilePage.html')

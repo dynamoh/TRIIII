@@ -117,6 +117,8 @@ USE_L10N = True
 USE_TZ = True
 
 
+LOGOUT_REDIRECT_URL = 'landingPage'
+
 from .email_info import *
 
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
