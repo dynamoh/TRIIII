@@ -62,7 +62,9 @@
         margin-top:-64px;
     }
 
-    
+    .nav-link:hover,.navvvlink:hover,.ftlink:hover {
+        color:#EA4B32 !important;
+    }
 
     .carousel {
         position: relative;
@@ -333,7 +335,7 @@
                     <a class="nav-link" href="{% url 'AboutPage' %}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Challenges</a>
+                    <a class="nav-link" href="{% url 'ChallengesPage' %}">Challenges</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
@@ -500,10 +502,10 @@
                     <div class="col-sm-3" style="margin-top:15px">
                         <h5>USEFUL LINKS</h5>
                         <ul class="footerLinkText colOne-links float-left">     
-                            <li><a href="">Challenges</a></li>
-                            <li><a href="">About</a></li>
-                            <li><a href="">Contact</a></li> 
-                            <li><a href="">Carrer</a></li>
+                            <li><a class="ftlink" href="{% url 'ChallengesPage' %}">Challenges</a></li>
+                            <li><a class="ftlink" href="{% url 'AboutPage' %}">About</a></li>
+                            <li><a class="ftlink" href="{% url 'ContactUS' %}">Contact</a></li> 
+                            <li><a class="ftlink" href="">Carrer</a></li>
                         </ul>
                     </div>
 

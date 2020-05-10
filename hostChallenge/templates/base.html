@@ -237,6 +237,14 @@
         display: inline-block;
     }
 
+    .nav-link:hover,.navvvlink:hover {
+        color:#EA4B32 !important;
+    }  
+
+    .ftlink:hover {
+        color:#EA4B32 !important;
+    }  
+
     @media (max-width: 800px) {
         .navbar{
             background-color: black !important;
@@ -367,10 +375,10 @@
                     <div class="col-sm-3" style="margin-top:15px">
                         <h5>USEFUL LINKS</h5>
                         <ul class="footerLinkText colOne-links float-left" >     
-                            <li><a style="color:white !important" href="">Challenges</a></li>
-                            <li><a style="color:white !important" href="">About</a></li>
-                            <li><a style="color:white !important" href="">Contact</a></li> 
-                            <li><a style="color:white !important" href="">Carrer</a></li>
+                            <li><a class="ftlink" href="{% url 'ChallengesPage' %}">Challenges</a></li>
+                            <li><a class="ftlink" href="{% url 'AboutPage' %}">About</a></li>
+                            <li><a class="ftlink" href="{% url 'ContactUS' %}">Contact</a></li> 
+                            <li><a class="ftlink" href="">Carrer</a></li>
                         </ul>
                     </div>
 

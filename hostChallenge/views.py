@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from accounts.models import Profile
-from .models import ContactUs,Blog,Challenges
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from datetime import timedelta,datetime
+
+from accounts.models import Profile
+from .models import ContactUs,Blog,Challenges
 
 # Create your views here.
 def landingPage(request):
@@ -64,3 +66,26 @@ def aboutusPage(request):
 
 def profilePage(request):
     return render(request,'profilePage.html')
+
+def challengesPage(request):
+    challenges = Challenges.objects.filter(approved=True).order_by('-date_posted')
+    status = []
+    date = datetime.now().strftime ("%Y-%m-%d")
+    for i in challenges:
+        cm = datetime.strftime(i.deadline,"%Y-%m-%d")
+        if date>cm:
+            Challenges.objects.filter(title=i.title).filter(date_posted=i.date_posted).update(status="CLOSED")
+
+    challenges = Challenges.objects.filter(approved=True).order_by('-date_posted')
+
+    if request.method == 'POST':
+        status = request.POST.get('status')
+        search = request.POST.get('searchbox')
+        discipline = request.POST.get('discipline')
+        challenges = Challenges.objects.filter(approved=True).filter(Q(title__icontains = search)|Q(description__icontains = search)).filter(status__icontains=status).filter(category__icontains=discipline).order_by('-date_posted')
+
+    return render(request,'challenges.html',{'challenges':challenges})
+
+def challengeDetail(request,slug):
+    challenge_obj = get_object_or_404(Challenges, slug=slug)
+    return render(request,'challengeDetail.html',{'challenge':challenge_obj})

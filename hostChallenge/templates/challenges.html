@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <style>
+        .registerBtn{
+            font-size: 14px;
+            border-radius: 0;
+            border: none;
+            padding: 9px 30px;
+            background-color: #e4e4e4;
+            color: #9e1f63;
+            font-family: 'PT Serif', serif;
+            font-weight: 400 !important;
+            width:30vw !important;
+            margin-top:25px;
+            text-align:center;
+            margin-left:25vw;
+            font-size:1.2em;
+            text-transform:uppercase;
+        }
+
+        .registerBtn:hover{
+            color: #9e1f63;
+            background: #e4e4e4;
+            outline:none;
+        }
+
+        .registerBtn:focus{
+            outline:none !important;
+            border:none !important;
+            background-color: #e4e4e4 !important;
+        }
+
+        .ch{
+            border-top: 3px solid #e4e4e4;
+            padding-bottom: 15px;
+            padding-top:15px;
+            border-bottom: 3px solid #e4e4e4;
+        }
+
+        .challenges{
+            margin-top:25px;
+        }
+
+        .chead{
+            margin: 0 0 10px;
+            color:#000067 !important;
+            font-size:1.5em;
+        }
+
+        .status{
+            background-color:green;
+            padding:7px 12px;
+            color:black;
+            font-size:1.0em;
+            color:white;
+        }
+
+        .sbbtn{
+            background-color: #000067;
+            padding:5px 35px;
+            margin-top:7.5px;
+            color:white;
+            font-weight:400;
+            outline:none;
+            border:none;
+            width:100%;%
+        }
+
+        .filters .col-md-3 {
+            margin-top:10px;
+        }
+
+        .filters {
+            background: #e4e4e4;
+            border-color: #e4e4e4;
+            padding:12px;
+            margin-top:30px;
+            padding-top:4px;
+        }
+
+        .author-info {
+            bottom: 0;
+            left: 0;
+            margin: 10px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        img.author-profile-pic {
+            border-radius: 40px;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            margin-right:5px;
+        }
+
+
+        @media (max-width:800px) {
+            .registerBtn{
+                font-size: 14px;
+                border-radius: 0;
+                border: none;
+                padding: 9px 30px;
+                background-color: #e4e4e4;
+                color: #9e1f63;
+                font-family: 'PT Serif', serif;
+                font-weight: 400 !important;
+                width:88vw !important;
+                margin-top:25px;
+                text-align:center;
+                margin-left:2vw;
+                font-size:1.2em;
+                text-transform:uppercase;
+            }
+
+            .stt{
+                margin-top:20px !important;
+                margin-bottom:15px !important;
+            }
+
+            .ch{
+                text-align:center;
+            }
+        }
+
+    </style>
+
+    <div class="container">
+        <a href="{% url 'signuppage' %}">
+            <button class="registerBtn"> Register as Solver </button> 
+        </a>
+
+        <form method="POST" >{% csrf_token %}
+            <div class="filters row">
+                <div class="col-md-3">
+                    <label>Search Term</label><br/>
+                    <input type="text" class="form-control" name="searchbox" placeholder="Search challenge" />
+                </div>
+
+                <div class="col-md-3">
+                    <label>Discipline </label><br/>
+                    <select class="form-control" name="discipline" >
+                        <option value="">Select Discipline</option>
+                        <option value="Marketing" >Marketing</option>
+                        <option value="Energy" >Energy</option>
+                        <option value="Iot" >Iot</option>
+                        <option value="Automation" >Automation</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label>Status </label>
+                    <select class="form-control" name="status" >    
+                        <option value="">Select Status</option>
+                        <option value="OPEN">Open</option>
+                        <option value="CLOSED">Closed</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label> </label><br/>
+                    <button type="submit" class="sbbtn">FILTER</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="challenges">
+            {% for cha in challenges %}
+                <div class="ch row">
+                    <div class="col-md-2">
+                        <img width="160px" height="160px" style="margin-top:12px;" src="/media/{{cha.image}}" />
+                    </div>
+
+                    <div class="col-md-10" style="padding-left:35px;">
+                        <div class="row">
+                            <div class="col-md-9 challenge-details-column">
+                                <div class="challenge-name inno-dark-blue-text media-center">
+                                <a class="chead" href="{% url 'ChallengeDetail' slug=cha.slug %}">
+                                    <p >{{cha.title}}</p>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="byline media-center">Deadline:&nbsp;<strong> {{cha.deadline}} </strong></div>
+                                <div class="byline media-center">Posted:&nbsp;<strong> {{cha.date_posted}} </strong></div>
+                            </div>
+                            <div class="col-md-3 stt" >
+                                {% if cha.status == "CLOSED" %}
+                                    <div class="right media-center" ><span class="status" style="background-color:red;"> {{cha.status}} </span></div>
+                                {% else %}
+                                    <div class="right media-center"><span class="status"> {{cha.status}} </span></div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="challenge-tags media-center">
+                                    <span class="label tags-title"><b>Tags:&nbsp;</b></span> 
+                                    <span class="tags-title " title="Chemistry"> {{cha.tags}} </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        <div class="author-info">
+                            <img class="author-profile-pic" src="/media/{{cha.posted_by.avatar}}" alt="">
+                            <span class="author-name">{{cha.posted_by.full_name}}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

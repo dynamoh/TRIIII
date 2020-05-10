@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <style>
+        .mainBody {
+            background-color: #F8F9FA;
+            padding: 19px;
+            border: 1px solid #899EB1;
+            margin-top: 65px;
+        }
+
+        .chfirst {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #899EB1;
+            border-left: 1px solid #899EB1;
+            border-right: 1px solid #899EB1;
+            border-top: 4px solid #899EB1;
+            padding-top: 15px;
+            margin-left:.5%;
+        }
+
+        .imgThumb {
+            display: inline-block;
+            max-width: 100%;
+            height: 120px;
+            padding: 4px;
+            line-height: 1.42857143;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            -webkit-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            margin-left:20px;
+            margin-top:38%;
+        }
+
+        .challengeName{
+            border-bottom: 1px solid #CCCCCC;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            line-height: 1.1;
+            color: #899EB1;
+            font-size: 1.5em;
+            font-family: 'Netto Regular', arial, verdana, helvetica, sans-serif;
+            margin-left:25px;
+        }
+
+        .row{
+            width:99%;
+        }
+
+        .tags{
+            color: #000000;
+            font-size: 14px;
+            padding: .2em .6em .3em;
+            margin-left:25px;
+        }
+
+        .deadline, .posted{
+            margin-left:38px;
+        }
+
+        .extra{
+            background-color: #f8f8f8;
+            height: 30px;
+            font-size: 11px;
+            border-top: 1px solid #e7e7e7;
+            margin-top:15px;
+        }
+
+        .abstractHead{
+            background-color: #899EB1;
+            font-size: 18px;
+            padding: 6px 20px;
+            font-weight: bold;
+            width:99%;
+            margin-left:0.5%;
+            margin-top:25px;
+        }
+
+        .abstractContent {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            line-height: 1.42857143;
+            color: #333;
+            width:95%;
+            margin-left:2.5%;
+            margin-top:25px;
+        }
+
+        .author-info {
+            bottom: 0;
+            margin: 10px;
+            height: 40px;
+            line-height: 40px;
+            margin-left:30px;
+        }
+
+        img.author-profile-pic {
+            border-radius: 40px;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            margin-right:5px;
+        }
+
+        @media (max-width:800px) {
+            .chfirst{
+                margin-left:2%;
+            }
+
+            .deadline, .posted{
+                margin-left:18px;
+            }
+        }
+
+    </style>
+
+    <div class="container">
+
+        <div class="mainBody">
+            <div class="chfirst row">
+                <div class="col-md-2">
+                    <img src="/media/{{challenge.image}}" class="imgThumb" >
+                    
+                </div>
+
+                <div class="col-md-8">
+                    <p class="challengeName"> {{challenge.title}} </p>
+                    <p class="tags"> <b>TAGS :</b> {{challenge.tags}} </p>
+                    <span class="deadline">Deadline : <b> {{challenge.deadline}} </b> </span><br/>
+                    <span class="posted">Posted : {{challenge.date_posted}} </span>
+                    <div class="author-info">
+                        <img class="author-profile-pic" src="/media/{{challenge.posted_by.avatar}}" alt="">
+                        <span class="author-name">{{challenge.posted_by.full_name}}</span>
+                    </div>
+                </div>
+
+                <div class="extra col-md-12">
+
+                </div>
+            </div>
+
+            <div class="abstract">
+                <p class="abstractHead">Abstract</p>
+                <p class="abstractContent"> {{challenge.summary}} </p>
+            </div>
+
+            <div class="abstract">
+                <p class="abstractHead">Description</p>
+                <p class="abstractContent">{{challenge.description}}</p>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

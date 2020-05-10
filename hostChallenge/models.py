@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import User,Profile
+from django.utils import timezone
 from django.template.defaultfilters import slugify
 
 # Create your models here.
@@ -10,6 +11,13 @@ class Constants:
         ('Machine','Machine'),
         ('Machine','Machine'),
         ('Machine','Machine'),
+    )
+
+    CATEGORY = (
+        ('Marketing' ,'Marketing'),
+        ('Energy','Energy'),
+        ('Iot','Iot'),
+        ('Automation','Automation'),
     )
 
 
@@ -41,13 +49,17 @@ class Blog(models.Model):
 
 class Challenges(models.Model):
     title = models.CharField(max_length=1000)
-    category = models.CharField(max_length=500)
+    category = models.CharField(max_length=500,choices=Constants.CATEGORY)
     summary = models.TextField()
     description = models.TextField()
+    image = models.ImageField(blank=True,null=True)
     challenge_file = models.FileField(blank=True,null=True)
     date_posted = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
+    tags = models.CharField(max_length=2500,default="")
     posted_by = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    deadline = models.DateField(default=timezone.now)
+    status = models.CharField(max_length=100,default="OPEN")
     slug = models.SlugField()
 
     class Meta:

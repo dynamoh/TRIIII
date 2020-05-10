@@ -240,6 +240,10 @@
         margin-top:50vh !important;
     }
 
+    .nav-link:hover,.navvvlink:hover {
+        color:#EA4B32 !important;
+    }
+
     @media (max-width: 800px) {
         .navbar{
             background-color: black !important;
@@ -309,7 +313,7 @@
                     <a class="nav-link" href="{% url 'AboutPage' %}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Challenges</a>
+                    <a class="nav-link" href="{% url 'ChallengesPage' %}">Challenges</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
