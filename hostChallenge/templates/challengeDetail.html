@@ -155,6 +155,12 @@
                 <p class="abstractContent">{{challenge.description}}</p>
             </div>
 
+            {% if challenge.challenge_file %}
+            <div class="files" style="margin-top:25px;">
+                <iframe src=/media/{{challenge.challenge_file}} width=800 height=400 frameborder=0 style="width:97%;margin-left:1.5%;height:90vh;" ></iframe>
+            </div>
+            {% endif %}
+
         </div>
 
     </div>
