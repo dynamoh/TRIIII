@@ -116,6 +116,12 @@
             .deadline, .posted{
                 margin-left:18px;
             }
+
+            .blog-card-preview-image{
+                width:100% !important;
+                height:auto !important;
+                display:grid !important;
+            }
         }
 
     </style>
@@ -126,7 +132,6 @@
             <div class="chfirst row">
                 <div class="col-md-2">
                     <img src="/media/{{challenge.image}}" class="imgThumb" >
-                    
                 </div>
 
                 <div class="col-md-8">
@@ -134,10 +139,6 @@
                     <p class="tags"> <b>TAGS :</b> {{challenge.tags}} </p>
                     <span class="deadline">Deadline : <b> {{challenge.deadline}} </b> </span><br/>
                     <span class="posted">Posted : {{challenge.date_posted}} </span>
-                    <div class="author-info">
-                        <img class="author-profile-pic" src="/media/{{challenge.posted_by.avatar}}" alt="">
-                        <span class="author-name">{{challenge.posted_by.full_name}}</span>
-                    </div>
                 </div>
 
                 <div class="extra col-md-12">
@@ -155,9 +156,32 @@
                 <p class="abstractContent">{{challenge.description}}</p>
             </div>
 
-            {% if challenge.challenge_file %}
-            <div class="files" style="margin-top:25px;">
-                <iframe src=/media/{{challenge.challenge_file}} width=800 height=400 frameborder=0 style="width:97%;margin-left:1.5%;height:90vh;" ></iframe>
+            {% if challenge.file1 %}
+            <p class="abstractHead">Photos/Videos</p>
+            <div class="files row" style="margin-top:25px;margin-left:1.5%;">
+                <div class="col-md-4">
+                    <img src=/media/{{challenge.file1}} style="width:100%;height:200px;" />
+                </div>
+
+                <div class="col-md-4">
+                {% if challenge.file2 %}
+                    <img src=/media/{{challenge.file2}} style="width:100%;height:200px;" />
+                {% endif %}
+                </div>
+
+                <div class="col-md-4">
+                {% if challenge.file3 %}
+                    <img src=/media/{{challenge.file3}} style="width:100%;height:200px;" />
+                {% endif %}
+                </div>
+
+                <div class="col-md-12" style="margin-top:30px;">
+                {% if challenge.file4 %}
+                    <video class="blog-card-preview-image" width="100%" height="100%" controls="" autoplay="true" muted="" loop="">
+                        <source src="/media/{{challenge.file4}}" type="video/mp4">
+                    </video>
+                {% endif %}
+                </div>
             </div>
             {% endif %}
 

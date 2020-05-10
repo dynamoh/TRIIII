@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .services-head{
+            background: #47bfab;
+            color: #fff;
+            padding:20px 5px;
+        }
+
+        .section-head {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            font-weight:500;
+        }
+
+        .content {
+            margin-right:55px;
+        }
+
+        .section2{
+            margin-top:30px;
+        }
+
+        .section3 {
+            margin-top:50px;
+        }
+
+        .section2 p{
+            margin-left:50px;
+            margin-right:25px;
+        }
+
+        .section2 h1{
+            margin-left:50px;
+        }
+
+        .dspnone{
+            display:none;
+        }
+
+        .contactmore{
+            background-color:black;
+            color:white;
+            padding-top:80px;
+            padding-bottom:15px;
+            margin-top:80px;
+        }
+
+        .pageFooter{
+            margin-top:0px !important;
+        }
+
+        .cntBtn {
+            display: block;
+            font-family: "lionbridge_sansregular",sans-serif;
+            font-size: 14px;
+            line-height: 14px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #fff;
+            background-color: #EA4B32;
+            border-radius: 6px;
+            padding: 14.5px 21px;
+            -webkit-transition: all .4s;
+            -ms-transition: all .4s;
+            -o-transition: all .4s;
+            transition: all .4s;
+            cursor: pointer;
+            outline:none;
+            border:none;
+        }
+
+        @media (max-width:800px) {
+            .services-head img{
+                width:100%;
+                height:auto;
+            }
+
+            p{
+                margin:5px !important;
+            }
+
+            h1{
+                margin:5px !important;
+            }
+
+            .dspnone{
+                display:grid;
+            }
+
+            .dispone{
+                display:none;
+            }
+        }
+    </style>
+
+    <div class="services-head" align="center">
+        <img src="{% static 'images/servicesheadtransparent.png' %}" />
+    </div>
+
+    <div class="container" style="margin-top:56px;">
+        <div class="section1 row">
+            <div class="col-md-8">
+                <h1 class="section-head">Problem Solving</h1>
+                <p class="content"> JointForce is positioned as a reliable Internet-based IT service crowdsourcing platform. 
+                Based on socialized cooperation and sharing, it provides a transaction and communication platform for the 
+                customers with short or medium term IT service demands and the individuals, teams and enterprises who are 
+                willing to provide services. To enable both parties to the transaction to complete the customized development 
+                and delivery of software in a rapid, safe and effective manner, it provides the Development Collaboration Cloud 
+                (DCC) and effective and comprehensive assistance and guidance throughout the IT service.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <img src="{% static 'images/problemsolving.png' %}" style="width:100%;height:auto;" />
+            </div>
+        </div>
+
+        <div class="section2 row">
+            <div class="col-md-4 dispone">
+                <img src="{% static 'images/funding.png' %}" style="width:100%;height:auto;" />
+            </div>
+            <div class="col-md-8">
+                <h1 class="section-head">Funding</h1>
+                <p class="content"> JointForce is positioned as a reliable Internet-based IT service crowdsourcing platform. 
+                Based on socialized cooperation and sharing, it provides a transaction and communication platform for the 
+                customers with short or medium term IT service demands and the individuals, teams and enterprises who are 
+                willing to provide services. To enable both parties to the transaction to complete the customized development 
+                and delivery of software in a rapid, safe and effective manner, it provides the Development Collaboration Cloud 
+                (DCC) and effective and comprehensive assistance and guidance throughout the IT service.
+                </p>
+            </div>
+            <div class="col-md-4 dspnone">
+                <img src="{% static 'images/funding.png' %}" style="width:100%;height:auto;" />
+            </div>
+        </div>
+
+        <div class="section3 row">
+            <div class="col-md-8">
+                <h1 class="section-head">Chronicles</h1>
+                <p class="content"> JointForce is positioned as a reliable Internet-based IT service crowdsourcing platform. 
+                Based on socialized cooperation and sharing, it provides a transaction and communication platform for the 
+                customers with short or medium term IT service demands and the individuals, teams and enterprises who are 
+                willing to provide services. To enable both parties to the transaction to complete the customized development 
+                and delivery of software in a rapid, safe and effective manner, it provides the Development Collaboration Cloud 
+                (DCC) and effective and comprehensive assistance and guidance throughout the IT service.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/chronicles.png' %}" style="width:100%;height:auto;" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="contactmore">
+        <div class="container">
+            <h1>Can’t find the service you need?</h1>
+            <h5>To know more about our services <a href="{% url 'ContactUS' %}" >Contact Us</a></h5>
+            <a href="{% url 'ContactUS' %}" ><button class="cntBtn">Contact Us</button></a>
+        </div>
+    </div>
+
+{% endblock %}

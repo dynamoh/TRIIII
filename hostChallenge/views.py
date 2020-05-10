@@ -89,3 +89,6 @@ def challengesPage(request):
 def challengeDetail(request,slug):
     challenge_obj = get_object_or_404(Challenges, slug=slug)
     return render(request,'challengeDetail.html',{'challenge':challenge_obj})
+
+def services(request):
+    return render(request,'services.html')
