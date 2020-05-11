@@ -75,3 +75,26 @@ class Challenges(models.Model):
         str2 = self.date_posted
         self.slug = slugify(str1+str(str2))
         super(Challenges,self).save(*args,**kwargs)
+
+
+class ChallengeContacts(models.Model):
+    company_name = models.CharField(max_length=500)
+    email = models.EmailField()
+    address = models.TextField()
+    phone = models.CharField(max_length=12)
+    contact_person = models.CharField(max_length=1500)
+    number = models.CharField(max_length=12)
+    date = models.DateField(auto_now_add = True)
+
+    def __str__(self):
+        return self.company_name
+
+class Submissions(models.Model):
+    challenge = models.ForeignKey(Challenges,on_delete=models.CASCADE)
+    description = models.TextField()
+    image = models.ImageField()
+    sfile = models.FileField()
+    submitted_by = models.ForeignKey(Profile,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.challenge.title

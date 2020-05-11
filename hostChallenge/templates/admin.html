@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <style>
+        .ch{
+            border-top: 3px solid #e4e4e4;
+            padding-bottom: 15px;
+            padding-top:15px;
+            border-bottom: 3px solid #e4e4e4;
+        }
+
+        .challenges{
+            margin-top:25px;
+        }
+
+        .chead{
+            margin: 0 0 10px;
+            color:#000067 !important;
+            font-size:1.5em;
+        }
+
+        .status{
+            background-color:green;
+            padding:7px 12px;
+            color:black;
+            font-size:1.0em;
+            color:white;
+        }
+
+        .sbbtn{
+            background-color: #000067;
+            padding:5px 35px;
+            margin-top:7.5px;
+            color:white;
+            font-weight:400;
+            outline:none;
+            border:none;
+            width:100%;%
+        }
+
+        .approveBtn{
+            font-size: 14px;
+            border-radius: 0;
+            border: none;
+            padding: 5px 15px;
+            background-color: #EA4B32;
+            color: #fff;
+            font-family: 'roboto', sans-serif;
+            font-weight: 800 !important;
+            margin-top:20px;
+        }
+
+        .approveBtn:hover{
+            width:auto;
+            color: #fff;
+            background: #C02E16;
+            outline:none;
+        }
+
+        
+    </style>
+
+    <div class="container">
+        <div class="row" style="margin:40px 0px 25px 0px;">
+            <h1 >Pending Challenges</h1>
+        </div>
+        {% for cha in chs %}
+            <div class="ch row">
+                <div class="col-md-2">
+                    <img width="160px" height="160px" style="margin-top:12px;" src="/media/{{cha.image}}" />
+                </div>
+
+                <div class="col-md-10" style="padding-left:35px;">
+                    <div class="row">
+                        <div class="col-md-9 challenge-details-column">
+                            <div class="challenge-name inno-dark-blue-text media-center">
+                            <a class="chead" href="{% url 'ChallengeDetail' slug=cha.slug %}">
+                                <p >{{cha.title}}</p>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="byline media-center">Deadline:&nbsp;<strong> {{cha.deadline}} </strong></div>
+                            <div class="byline media-center">Posted:&nbsp;<strong> {{cha.date_posted}} </strong></div>
+                        </div>
+                        <div class="col-md-3 stt" >
+                            {% if cha.status == "CLOSED" %}
+                                <div class="right media-center" ><span class="status" style="background-color:red;"> {{cha.status}} </span></div>
+                            {% else %}
+                                <div class="right media-center"><span class="status"> {{cha.status}} </span></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="challenge-tags media-center">
+                                <span class="label tags-title"><b>Tags:&nbsp;</b></span> 
+                                <span class="tags-title " title="Chemistry"> {{cha.tags}} </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="challenge-tags media-center">
+                                <form method="POST" >{% csrf_token %}
+                                    <input type="text" hidden name="title" value="{{cha.title}}" />
+                                    <input type="date" hidden name="date" value="{{cha.date_posted|date:'Y-m-d'}}" />
+                                    <button type="submit" class="approveBtn">Approve</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="row" style="margin:40px 0px 25px 0px;">
+            <h1 >List of Active Users</h1>
+        </div>
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Deactivate</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if users %}
+        {% for i in users %}
+            <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.full_name}}</td>
+            <td>{{i.user_id.email}}</td>
+            <td>{{i.company_name}}</td>
+            <td>{{i.phone_number}}</td>
+            <td>{{i.address}}</td>
+            <td>
+                <form method='POST'>{% csrf_token %}
+                    <input type="text" hidden value="{{i.user_id.email}}" name="rmemail" />
+                    <button style="margin-top:0px;" class="approveBtn" >Deactivate</button>
+                </form>
+            </td>
+            </tr>
+        {% endfor %}
+        {% else %}
+            <tr>
+            <th scope="row">-</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+    <div class="row" style="margin:40px 0px 25px 0px;">
+            <h1 >List of Deactivated Users</h1>
+        </div>
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if dusers %}
+        {% for i in dusers %}
+            <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.full_name}}</td>
+            <td>{{i.user_id.email}}</td>
+            <td>{{i.company_name}}</td>
+            <td>{{i.phone_number}}</td>
+            <td>{{i.address}}</td>
+            </tr>
+        {% endfor %}
+        {% else %}
+            <tr>
+            <th scope="row">-</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+
+    </div>
+{% endblock %}

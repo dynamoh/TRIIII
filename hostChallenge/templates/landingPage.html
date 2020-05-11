@@ -311,7 +311,9 @@
   <div class="bannerVideoWrapper">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container pos-f-t headerNavbar clearfix">
-        <h4 class="navbar-brand" style="color:white;padding-top:5px;" >TRIIII</h4>
+        {% comment %} <h4 class="navbar-brand" style="color:white;padding-top:5px;" >TRIIII</h4> {% endcomment %}
+        <img style="width:60px;height:auto;color:white;background-color:white;border-radius:50%;padding:8px;" src="{% static 'images/logo.png' %}" />
+        <span class="navbar-brand" style="color:white;margin-left:10px;font-size:35px;">TRIIII</span>
         <button class="navbar-toggler" style="position:relative;"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span style="position:absolute;right:-90px !important;top:-10px;" class="navbar-toggler-icon"></span>
         </button>
@@ -397,30 +399,31 @@
         </div>
     </div>
     </div> 
-    {% if user.is_authenticated %}
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Launch a Challenge</h5>
+                
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
+            <p><b>Fill the details below and we will reach out to you for further informations.</b></p>
                 <form enctype="multipart/form-data" method="POST">{% csrf_token %}
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Challenge Title</label>
-                                <input type="text" name="title" required class="form-control" placeholder="Enter Challenge title">
+                                <label for="exampleInputEmail1">Company Name</label>
+                                <input type="text" name="company_name" class="form-control" placeholder="Enter Your company Name">
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Challenge Category</label>
-                                <input type="text" name="category" required class="form-control" placeholder="Enter Challenge Category">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" name="email" required class="form-control" placeholder="Enter email">
                             </div>
                         </div>
                     </div>
@@ -428,15 +431,15 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Challenge Description</label>
-                                <textarea name="description" rows="8" col="80" required class="form-control"></textarea>
+                                <label for="exampleInputEmail1">Address</label>
+                                <input name="address" type="text" placeholder="Enter address" required class="form-control" />
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Challenge Summary</label>
-                                <textarea name="summary" rows="8" col="80" required class="form-control"></textarea>
+                                <label for="exampleInputEmail1">Phone Number</label>
+                                <input name="phone" type="text" placeholder="Enter phone number" required class="form-control" />
                             </div>
                         </div>
                     </div>
@@ -444,15 +447,20 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Challenge File</label>
-                                <input type="file" name="challengefile" class="form-control" >
+                                <label for="exampleInputEmail1">Contact Person</label>
+                                <input type="text" name="contact_person" placeholder="Enter name of person" class="form-control" >
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                
-                                <button class="btn TriiiiBtn mr-3 pull-left" style="margin-top:30px;width:200px;" type="submit">Launch Challenge</button>
+                                <label for="exampleInputEmail1">Contact Number</label>
+                                <input type="text" name="number" placeholder="Enter phone number of person" class="form-control" >
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <button class="btn TriiiiBtn mr-3 pull-left" style="width:100%;" type="submit">Launch Challenge</button>
                         </div>
                     </div>
                 </form>
@@ -460,24 +468,6 @@
             </div>
         </div>
     </div>
-    {% else %}
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" align="center">
-                <p><b> You are not authenticated. <br/> Please Login to Launch a Challenge </b> </p>
-                <a class="TriiiiBtn" style="width:25vw !important;"  href="{% url 'loginpage' %}" >Login</a>
-            </div>
-            </div>
-        </div>
-    </div>
-    {% endif %}
 
     <div class="container">
         <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">

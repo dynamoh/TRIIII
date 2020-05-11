@@ -3,7 +3,7 @@ from .views import (landingPage,ContactUsPage,
                     blogsPage,blogsDetailPage,
                     aboutusPage,profilePage,
                     challengesPage,challengeDetail,
-                    services)
+                    services,employeePage,adminPage)
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -17,7 +17,9 @@ urlpatterns = [
     path('profile/',profilePage,name="ProfilePage"),
     path('challenges/',challengesPage,name="ChallengesPage"),
     path('challenges/<str:slug>/',challengeDetail,name="ChallengeDetail"),
-    path('services/',services,name="ServicePage")
+    path('services/',services,name="ServicePage"),
+    path('employee/3D--4de785db6fe964cfb5344a7ea2e2c10b980afd0f/',employeePage,name="EmployeePage"),
+    path('mainadmin/',adminPage,name="AdminPage"),
 ]
 
 if(settings.DEBUG):

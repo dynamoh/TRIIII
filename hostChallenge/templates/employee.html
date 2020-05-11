@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <style>
+        .launchButton {
+            height:60%;
+            margin-top:10px;
+            margin-left:70px;
+        }
+
+        .launchButton{
+            font-size: 14px;
+            border-radius: 0;
+            border: none;
+            padding: 5px 15px;
+            background-color: #EA4B32;
+            color: #fff;
+            font-family: 'roboto', sans-serif;
+            font-weight: 800 !important;
+        }
+
+        .launchButton:hover{
+            width:auto;
+            color: #fff;
+            background: #C02E16;
+            outline:none;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row" style="margin:40px 0px 25px 0px;">
+            <h1  >Persons who have Contacted till now.</h1>
+            <button data-toggle="modal" data-target=".bd-example-modal-lg" class="launchButton" >Create Challenge</button>
+        </div>
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Contact Person</th>
+                <th scope="col">Number</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if objs %}
+        {% for i in objs %}
+            <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.company_name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.contact_person}}</td>
+            <td>{{i.number}}</td>
+            </tr>
+        {% endfor %}
+        {% else %}
+            <tr>
+            <th scope="row">-</th>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    </div>
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create a Challenge</h5>
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form enctype="multipart/form-data" method="POST">{% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Title</label>
+                                <input type="text" name="title" class="form-control" placeholder="Enter Challenge title">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Category</label>
+                                <select name="category" class="form-control">
+                                    <option value="Marketing" >Marketing</option>
+                                    <option value="Energy" >Energy</option>
+                                    <option value="Iot" >Iot</option>
+                                    <option value="Automation" >Automation</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Summary</label>
+                                <textarea name="summary" row="8" col="80" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Description</label>
+                                <textarea name="description" row="8" col="80" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tags</label>
+                                <input type="text" name="tags" placeholder="Enter tags" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Deadline</label>
+                                <input type="date" name="deadline" class="form-control" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Image</label>
+                                <input type="file" name="image" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">File1</label>
+                                <input type="file" name="file1" class="form-control" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">File2</label>
+                                <input type="file" name="file2" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">File3</label>
+                                <input type="file" name="file3" class="form-control" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">File4</label>
+                                <input type="file" name="file4" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <button class="btn TriiiiBtn mr-3 pull-left" style="width:100%;margin-top:30px;" type="submit">Launch Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -66,6 +66,7 @@ class User(PermissionsMixin,AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False) # a admin user; non super-user
     is_admin = models.BooleanField(default=False) # a superuser
+    is_employee = models.BooleanField(default=False)
     # notice the absence of a "Password field", that's built in.
 
     USERNAME_FIELD = 'email'
@@ -123,3 +124,4 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user_id.username
+
