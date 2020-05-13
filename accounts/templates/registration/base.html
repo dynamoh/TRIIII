@@ -398,7 +398,62 @@
                     <div class="col-sm-3" style="margin-top:15px">
                         <h5>OUR NEWSLETTER</h5>
                         <p style="font-size:0.8em;margin-right:0px !important;" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p >
-                        <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" id="subscribeSubmit">SUBMIT</button>
+                        <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" id="subscribeSubmit" data-toggle="modal" data-target="#subscribeModal" >Subscribe to our newsletter</button>
+                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="subscribeModal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" style="color:black !important;" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Subscribe to our NewsLetter</h5>
+                                    
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form enctype="multipart/form-data" action="{% url 'Subscribe' %}" method="POST">{% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group" >
+                                                    <label for="exampleInputEmail1">Name</label>
+                                                    <input required type="text" name="name" placeholder="Enter Name" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group" >
+                                                    <label for="exampleInputEmail1">Email</label>
+                                                    <input required type="text" name="email" placeholder="Enter Email" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group" >
+                                                    <label for="exampleInputEmail1">Company Name</label>
+                                                    <input  type="text" name="company" placeholder="Enter Company Name" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group" >
+                                                    <label for="exampleInputEmail1">Phone</label>
+                                                    <input required type="text" name="phone" placeholder="Enter Phone number" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <button class="btn TriiiiBtn mr-3 pull-left" style="width:100%;" type="submit">Subscribe</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    
                     </div>
                     {% comment %} <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <ul class="subscribe">

@@ -3,10 +3,14 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+
+from django.core.mail import EmailMessage
 from datetime import timedelta,datetime
 
 from accounts.models import Profile,User
-from .models import ContactUs,Blog,Challenges,ChallengeContacts,Submissions
+from .models import ContactUs,Blog,Challenges,ChallengeContacts,Submissions,Subscribe
 
 # Create your views here.
 def landingPage(request):
@@ -50,7 +54,9 @@ def blogsPage(request):
 def blogsDetailPage(request,slug):
     blog_obj = get_object_or_404(Blog, slug=slug)
     print(blog_obj)
-    return render(request,'blogsDetail.html',{'blog':blog_obj})
+    tag = blog_obj.tags
+    tags = tag.split(',')
+    return render(request,'blogsDetail.html',{'blog':blog_obj,'tags':tags})
 
 
 def aboutusPage(request):
@@ -189,3 +195,49 @@ def adminPage(request):
         return render(request,'admin.html',{'chs':chs,'users':users,'dusers':dusers})
     return HttpResponseRedirect('/')
     
+def createBlog(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        tags = request.POST.get('tags')
+        content = request.POST.get('content')
+        video = request.FILES.get('video')
+        profile = Profile.objects.filter(user_id = request.user).first()
+        Blog.objects.create(title=title,tags=tags,content=content,video=video,author=profile)
+
+        subs = Subscribe.objects.all()
+
+        
+        current_site = get_current_site(request)
+
+        cb = Blog.objects.filter(title=title).first()
+
+        mail_subject = '[noreply] New Blog Posted at TRIIII'
+        msg = 'A new blog "' + title + '" has been posted on our website. Please check it out.'
+
+        for i in subs:
+            user = i.name
+            message = render_to_string('blogcreated.html', {
+                'user': user,
+                'domain': current_site.domain,
+                'msg':msg,
+                'slug':cb.slug,
+            })
+            to_email = i.email
+            email = EmailMessage(
+                        mail_subject, message, to=[to_email]
+            )
+            email.send()
+
+    return HttpResponseRedirect('/chronicles/')
+
+def subscribenewsLetter(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        company = request.POST.get('company')
+        phone = request.POST.get('phone')
+        obj = Subscribe.objects.filter(name=name)
+        if obj:
+            return HttpResponseRedirect('/')
+        Subscribe.objects.create(name=name,email=email,company_name=company,phone=phone)
+    return HttpResponseRedirect('/')

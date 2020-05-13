@@ -56,6 +56,7 @@
             border-radius: 16px;
             background-color: #e4e4e4;
             cursor:pointer;
+            margin-right:10px;
         }  
 
         .tag:hover {
@@ -100,7 +101,11 @@
             <img class="author-img" src="/media/{{blog.author.avatar}}" />
             <p class="author-name" > {{blog.author.full_name}} </p>
         </div>
-        <a class="tag" > {{blog.tags}} </a>
+        <div class="row">
+        {% for i in tags %}
+            <a class="tag" > {{i}} </a>
+        {% endfor %}
+        </div>
         <div class="video">
             <video width="100%" height="100%" controls="" muted="" loop="">
                 <source src="/media/{{blog.video}}" type="video/mp4">
