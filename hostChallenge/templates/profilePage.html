@@ -147,9 +147,9 @@
                 {% for i in subs %}
                     <li class="list-group-item">You have submitted a solution for problem <b>{{i.challenge.title}}</b> on <b>{{i.submitted_on}}</b></li>
                 {% endfor %}
-                {% endif %}
-                    <li class="list-group-item">No Submissions yet.</li>
                 {% else %}
+                    <li class="list-group-item">No Submissions yet.</li>
+                {% endif %}
                 </ul>
             </div>
         </div>
