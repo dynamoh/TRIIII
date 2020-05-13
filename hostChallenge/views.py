@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from datetime import timedelta,datetime
 
 from accounts.models import Profile,User
-from .models import ContactUs,Blog,Challenges,ChallengeContacts
+from .models import ContactUs,Blog,Challenges,ChallengeContacts,Submissions
 
 # Create your views here.
 def landingPage(request):
@@ -67,6 +67,10 @@ def profilePage(request):
     address = profile.address
     avatar = profile.avatar
     phone_number = profile.phone_number
+    area_of_expertise = profile.area_of_expertise
+
+    subs = Submissions.objects.filter(submitted_by=profile).order_by('-submitted_on')
+
     if request.method == 'POST':
         email = request.POST.get('email')
         full_name = request.POST.get('full_name')
@@ -74,17 +78,20 @@ def profilePage(request):
         address = request.POST.get('address')
         phone_number = request.POST.get('phone_number')
         avatar = request.FILES.get('avatar')
+        area_of_expertise = request.POST.get('area_of_expertise')
         if avatar!='' and avatar!=None:
             Profile.objects.filter(user_id=user).update(full_name=full_name,
                                                         company_name=company_name,
                                                         address=address,
                                                         phone_number=phone_number,
-                                                        avatar=avatar)
+                                                        avatar=avatar,
+                                                        area_of_expertise=area_of_expertise)
         else:
             Profile.objects.filter(user_id=user).update(full_name=full_name,
                                                         company_name=company_name,
                                                         address=address,
-                                                        phone_number=phone_number)
+                                                        phone_number=phone_number,
+                                                        area_of_expertise=area_of_expertise)
             avatar = profile.avatar
     return render(request,'profilePage.html',{'email':email,
                                         'username':username,
@@ -92,7 +99,9 @@ def profilePage(request):
                                         'company_name':company_name,
                                         'address':address,
                                         'phone_number':phone_number,
-                                        'avatar':avatar
+                                        'avatar':avatar,
+                                        'area_of_expertise':area_of_expertise,
+                                        'subs':subs
                                         })
 
 
@@ -111,8 +120,18 @@ def challengesPage(request):
         status = request.POST.get('status')
         search = request.POST.get('searchbox')
         discipline = request.POST.get('discipline')
-        challenges = Challenges.objects.filter(approved=True).filter(Q(title__icontains = search)|Q(description__icontains = search)).filter(status__icontains=status).filter(category__icontains=discipline).order_by('-date_posted')
-
+        description = request.POST.get('description')
+        image = request.FILES.get('image')
+        file1 = request.FILES.get('file')
+        datepos = request.POST.get('datepos')
+        chall = request.POST.get('challenge')
+        if chall == '' or chall == None:
+            challenges = Challenges.objects.filter(approved=True).filter(Q(title__icontains = search)|Q(description__icontains = search)).filter(status__icontains=status).filter(category__icontains=discipline).order_by('-date_posted')
+        else:
+            ch = Challenges.objects.filter(title=chall).filter(date_posted=datepos).first()
+            pro = Profile.objects.filter(user_id=request.user).first()
+            Submissions.objects.create(challenge=ch,description=description,image=image,sfile=file1,submitted_by=pro)
+        return HttpResponseRedirect('/challenges/')
     return render(request,'challenges.html',{'challenges':challenges})
 
 def challengeDetail(request,slug):

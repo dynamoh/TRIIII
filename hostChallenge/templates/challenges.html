@@ -125,6 +125,25 @@
             }
         }
 
+        .TriiiiBtn{
+            position:relative !important;
+            font-size: 14px;
+            border-radius: 0;
+            border: none;
+            padding: 10px 15px;
+            background-color: #EA4B32;
+            color: #fff;
+            font-family: 'roboto', sans-serif;
+            font-weight: 800 !important;
+        }
+
+        .TriiiiBtn:hover{
+            width:auto;
+            color: #fff;
+            background: #C02E16;
+            outline:none;
+        }
+
     </style>
 
     <div class="container">
@@ -188,6 +207,7 @@
                             <div class="col-md-9">
                                 <div class="byline media-center">Deadline:&nbsp;<strong> {{cha.deadline}} </strong></div>
                                 <div class="byline media-center">Posted:&nbsp;<strong> {{cha.date_posted}} </strong></div>
+                                
                             </div>
                             <div class="col-md-3 stt" >
                                 {% if cha.status == "CLOSED" %}
@@ -201,10 +221,66 @@
                             <div class="col-md-9">
                                 <div class="challenge-tags media-center">
                                     <span class="label tags-title"><b>Tags:&nbsp;</b></span> 
-                                    <span class="tags-title " title="Chemistry"> {{cha.tags}} </span>
+                                    <span class="tags-title " title="Chemistry"> {{cha.tags}} </span><br/>
+                                    {% if user.is_authenticated %}
+                                        {% if cha.status == "OPEN" %}
+                                            <button class="TriiiiBtn" style="margin-top:6px;" data-toggle="modal" data-target=".bd-example-modal-lg"  >Submit Solution</button>
+                                        {% endif %}
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="col-md-3"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Submit Solution</h5>
+                            
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form enctype="multipart/form-data" method="POST">{% csrf_token %}
+                                <input type="text" hidden name="challenge" value="{{cha.title}}">
+                                <input type="text" hidden name="datepos" value="{{cha.date_posted|date:'Y-m-d'}}">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group" >
+                                            <label for="exampleInputEmail1">Write Solution</label>
+                                            <textarea style="height:300px;" type="text" name="desc" row="8" col="80" class="form-control" ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Upload Image</label>
+                                            <input type="file" name="image" class="form-control" >
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Upload File</label>
+                                            <input type="file" name="file" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <button class="btn TriiiiBtn mr-3 pull-left" style="width:100%;" type="submit">Submit Challenge</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -212,5 +288,8 @@
         </div>
 
     </div>
+
+
+    
 
 {% endblock %}

@@ -91,10 +91,20 @@ class ChallengeContacts(models.Model):
 
 class Submissions(models.Model):
     challenge = models.ForeignKey(Challenges,on_delete=models.CASCADE)
-    description = models.TextField()
-    image = models.ImageField()
-    sfile = models.FileField()
+    description = models.TextField(blank=True,null=True)
+    image = models.ImageField(blank=True,null=True)
+    sfile = models.FileField(blank=True,null=True)
     submitted_by = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    submitted_on = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.challenge.title
+
+class Subscribe(models.Model):
+    name = models.CharField(max_length=500)
+    email = models.EmailField()
+    company_name = models.CharField(max_length=1000,blank=True,null=True)
+    phone = models.CharField(max_length=12)
+
+    def __str__(self):
+        return self.name

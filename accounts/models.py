@@ -8,7 +8,15 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
-
+class Constants:
+    EXPERTISE = (
+        ('Other','Other'),
+        ('Electricity','Electricity'),
+        ('Workforce Management','Workforce Management'),
+        ('Logistics','Logistics'),
+        ('Technology','Technology'),
+        ('Process and Quality','Process and Quality'),
+    )
 
 class UserManager(BaseUserManager):
     def create_user(self, email, username, password=None):
@@ -120,6 +128,7 @@ class Profile(models.Model):
     company_name = models.CharField(max_length=1000)
     address = models.TextField()
     phone_number = models.CharField(max_length=12)
+    area_of_expertise = models.CharField(max_length=100,choices=Constants.EXPERTISE,default='Other')
     avatar = models.ImageField()
 
     def __str__(self):
