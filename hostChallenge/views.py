@@ -147,6 +147,7 @@ def challengeDetail(request,slug):
 def services(request):
     return render(request,'services.html')
 
+@login_required
 def employeePage(request):
     if request.user.is_employee:
         if request.method == 'POST':
@@ -179,6 +180,7 @@ def employeePage(request):
         return render(request,'employee.html',{'objs':objs})
     return HttpResponseRedirect('/')
 
+@login_required
 def adminPage(request):
     if request.user.is_admin:
         chs = Challenges.objects.filter(approved=False)
@@ -195,6 +197,7 @@ def adminPage(request):
         return render(request,'admin.html',{'chs':chs,'users':users,'dusers':dusers})
     return HttpResponseRedirect('/')
     
+@login_required
 def createBlog(request):
     if request.method == 'POST':
         title = request.POST.get('title')

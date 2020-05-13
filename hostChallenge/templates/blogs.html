@@ -340,7 +340,9 @@ img {
         <div class="imgText">
             <h1 class="hero-header">Chronicles</h1>
             <h2 class="hero-sub-header">Thoughts on leadership</h2><br/>
-            <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" id="subscribeSubmit" data-toggle="modal" data-target="#blogModal" >Write a blog</button>
+            {% if user.is_authenticated %}
+                <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" id="subscribeSubmit" data-toggle="modal" data-target="#blogModal" >Write a blog</button>
+            {% endif %}
         </div>
         <button class="TriiiiBtn subbtn btn btn-primary my-2 my-sm-0" type="submit" >Subscribe To Our Newsletter</button>
 
