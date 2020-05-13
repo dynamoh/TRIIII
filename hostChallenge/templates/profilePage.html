@@ -143,9 +143,13 @@
             </div>
             <div class="card" style="width: 60vw;font-size:1.3em;">
                 <ul class="list-group list-group-flush">
+                {% if subs %}
                 {% for i in subs %}
                     <li class="list-group-item">You have submitted a solution for problem <b>{{i.challenge.title}}</b> on <b>{{i.submitted_on}}</b></li>
                 {% endfor %}
+                {% endif %}
+                    <li class="list-group-item">No Submissions yet.</li>
+                {% else %}
                 </ul>
             </div>
         </div>
