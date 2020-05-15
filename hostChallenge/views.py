@@ -184,7 +184,7 @@ def employeePage(request):
 def adminPage(request):
     if request.user.is_admin:
         chs = Challenges.objects.filter(approved=False)
-        users = Profile.objects.all().filter(user_id__is_active = True)
+        users = Profile.objects.all().filter(user_id__is_active = True).exclude(user_id = request.user)
         dusers = Profile.objects.all().filter(user_id__is_active = False)
         if request.method == 'POST':
             title = request.POST.get('title')
