@@ -176,6 +176,7 @@
 
     video{
         margin-top:100px;
+        height:auto !important;
     }
 
     .how-it-works h2{
@@ -183,7 +184,7 @@
         font-style: normal;
         font-weight: bold;
         line-height: normal;
-        margin-top: 60px;
+        margin-top:100px;
         margin-bottom: 30px;
     }
 
@@ -238,6 +239,28 @@
         text-decoration:none;
     }
 
+    .SubsBtn{
+        font-size: 14px;
+        border-radius: 0;
+        border: none;
+        padding: 10px 15px;
+        background-color: #EA4B32;
+        color: #fff;
+        font-family: 'roboto', sans-serif;
+        font-weight: 800 !important;
+    }
+
+    .SubsBtn:hover{
+        color: #fff;
+        background: #C02E16;
+        outline:none;
+    }
+
+    .SubsBtn:focus{
+        outline:none;
+        border:none;
+    }
+
     .colOne-links li{
         padding-bottom:4px;
         border-bottom:1px solid rgba(240,240,240,0.4);
@@ -257,10 +280,42 @@
         letter-spacing:1px;
     }
 
+    .left{
+        margin-top:170px;
+        width: 288px;
+        float: right;
+        border: 1px solid #808080;
+    }
+
+    .left h2 {
+        margin: 0px;
+        padding: 5px;
+        text-align: left;
+        border-bottom: 1px solid #808080;
+        color: #0054c4;
+    }
+
+    .left li {
+        text-align: left;
+        font-size: .8em;
+        line-height: 2em;
+        list-style-type: none;
+        padding-left: 17px;
+        margin-top: 12px;
+        border-bottom: 1px solid #808080;
+    }
+
     @media (max-width: 800px) {
         .navbar{
             background-color: black !important;
             z-index:50 !important;
+        }
+
+        .left{
+            margin-top:50px;
+            margin-left:0px;
+            float:left;
+            width: 330px;
         }
 
         .one{
@@ -300,6 +355,11 @@
         video{
             margin-top:60px;
         }
+
+        .hditw{
+            height:auto !important;
+            display:grid;
+        }
     }
 
     body{
@@ -335,11 +395,10 @@
   <div class="bannerVideoWrapper">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container pos-f-t headerNavbar clearfix">
-        {% comment %} <h4 class="navbar-brand" style="color:white;padding-top:5px;" >TRIIII</h4> {% endcomment %}
-        <img style="width:60px;height:auto;color:white;background-color:white;border-radius:50%;padding:8px;" src="{% static 'images/logo.png' %}" />
+        <img style="width:60px;height:auto;color:white;background-color:white;border-radius:50%;padding:8px;display:grid !important;" src="{% static 'images/logo.png' %}" />
         <span class="navbar-brand" style="color:white;margin-left:10px;font-size:35px;">TRIIII</span>
         <button class="navbar-toggler" style="position:relative;"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span style="position:absolute;right:-90px !important;top:-10px;" class="navbar-toggler-icon"></span>
+            <span style="position:absolute;top:-10px;" class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -409,8 +468,9 @@
                 <div class="carousel-item active">
                     <div class="container">
                         <div class="videoText">
-                            <h4>TRIIIi – Accelerating Growth Of New India’s Innovations</h4>
-                            <p>The National Technology Commercialization Program to help take your innovations to market. An initiative by the Office of the Principal Scientific Adviser to the Government of India.</p>
+                            <h4>TRIIIi – We Understand Your Problem </h4>
+                            <p>A NEW, FAST AND EASY APPROACH TO REDUCE YOUR COST AND SOLVE YOUR FACTORY PROBLEMS, 
+                                SAVE MONEY AND GET ULTIMATELY PROFIT  </p>
                             <div class="bannerBtn clearfix">
                                 <button class="btn TriiiiBtn mr-3 pull-left" data-toggle="modal" data-target=".bd-example-modal-lg" >Launch Challenge</button>
                                 <button class="btn TriiiiBtn mr-3 pull-left" type="submit">Solve Challenge</button>
@@ -494,14 +554,31 @@
     </div>
 
     <div class="container">
-        <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
-            <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
-        </video> 
+        <div class="row">
+            <div class="col-md-8">
+                <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
+                    <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
+                </video> 
+            </div>
+            <div class="col-md-4">
+                <div class="left">
+                    <h2>Area of Solving</h2>
+                    <ul class="liststyle">
+                        <li>ELECTRICITY</li>
+                        <li>PRODUCTIVITY</li>
+                        <li>MANPOWER</li>
+                        <li>QUALITY </li>
+                        <li>MARKETING</li>
+                        <li><a href="{% url 'ServicePage' %}" style="color:blue !important" >Read More ...</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="container how-it-works" align="center">
         <h2>How does it work</h2>
-        <p> {% lorem 5 %} </p>
+        <img style="height:80vh;width:75vw !important;" class="hditw" src="{% static 'images/NEW11.png' %}" />
     </div>
 
 
@@ -511,8 +588,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3" style="margin-top:15px">
-                        <h5>DIVINECTOR</h5>
-                        <p style="font-size:0.8em" >{% lorem 1 %}</ style="font-size:0.8em" >
+                        <h5>ABOUT TRIIIi</h5>
+                        <p style="font-size:0.8em" > TRIIII is  an OPEN INNOVATION PLATFORM where solution seekers post their problems and  solver submits their solution to any company, organizations or factory-based obstacle and get the best possible solution out there for  respective intricacy</p>
                     </div>
 
                     <div class="col-sm-3" style="margin-top:15px">
@@ -521,7 +598,6 @@
                             <li><a class="ftlink" href="{% url 'ChallengesPage' %}">Challenges</a></li>
                             <li><a class="ftlink" href="{% url 'AboutPage' %}">About</a></li>
                             <li><a class="ftlink" href="{% url 'ContactUS' %}">Contact</a></li> 
-                            <li><a class="ftlink" href="">Carrer</a></li>
                         </ul>
                     </div>
 
@@ -541,14 +617,14 @@
                     </div>
 
                     <div class="col-sm-3" style="margin-top:15px">
-                        <h5>OUR NEWSLETTER</h5>
-                        <p style="font-size:0.8em;margin-right:0px !important;" >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p >
-                        <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" id="subscribeSubmit" data-toggle="modal" data-target="#subscribeModal" >Subscribe to our newsletter</button>
+                        <h5>OUR CHRONICLES</h5>
+                        <p style="font-size:0.8em;margin-right:0px !important;" >Stay Up To Date On industry update and technology You Need to grow our business.</p >
+                        <button class="SubsBtn btn btn-primary my-2 my-sm-0" id="subscribeSubmit" data-toggle="modal" data-target="#subscribeModal" >Subscribe to our Chronicles</button>
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="subscribeModal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg" style="color:black !important;" role="document">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Subscribe to our NewsLetter</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Subscribe to our Chronicles</h5>
                                     
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -652,6 +728,7 @@
             </div>
         </div>
     </footer>
+
 
   </body>
 

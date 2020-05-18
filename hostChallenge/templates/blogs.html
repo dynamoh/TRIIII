@@ -24,7 +24,7 @@ body{
     background-size: cover !important;
     background-repeat: no-repeat !important;
     position: relative;
-    height:25vh !important;
+    height:35vh !important;
 }
 
 h1.hero-header {
@@ -47,7 +47,7 @@ h2.hero-sub-header {
 .imgText{
     position:absolute;
     margin-top:2vh;
-    margin-left:40vw;
+    margin-left:30vw;
     text-align:center;
 }
 
@@ -147,14 +147,14 @@ h2.hero-sub-header {
 
 }
 
-a {
+{% comment %} a {
     color: #1cb5f2;
     text-decoration: none;
-}
+} {% endcomment %}
 
-a {
+{% comment %} a {
     background-color: transparent;
-}
+} {% endcomment %}
 
 .blog-post-item-card .card-image .blog-card-preview-image {
     background-size: cover !important;
@@ -274,10 +274,22 @@ img {
 }
 
 @media (max-width:800px) {
+
+    .frontpage-hero, .hero-banner-slim {
+        max-width: none;
+        overflow: hidden;
+        width: 100%;
+        padding-bottom: 100%;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        position: relative;
+        height:50vh !important;
+    }
+
     .imgText{
         position:absolute;
         margin-top:2vh;
-        margin-left:15vw;
+        margin-left:10vw;
         text-align:center;
     }
 
@@ -324,6 +336,15 @@ img {
     .searchform{
         margin-left:0vw !important;
     }
+
+    .navbar-toggler-icon{
+        right:0px !important;
+    }
+
+    .subbtn{
+        top:23vh;
+        left:4vw;
+    }
 }
 
 </style>
@@ -339,12 +360,12 @@ img {
 
         <div class="imgText">
             <h1 class="hero-header">Chronicles</h1>
-            <h2 class="hero-sub-header">Thoughts on leadership</h2><br/>
+            <h2 class="hero-sub-header"><b>GET LATEST INDUSTRY UPDATE KNOWLEDGE </br> UPGRADE YOUR KNOWLEDGE CROWDSOURCING</b></h2><br/>
             {% if user.is_authenticated %}
                 <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" id="subscribeSubmit" data-toggle="modal" data-target="#blogModal" >Write a blog</button>
             {% endif %}
         </div>
-        <button class="TriiiiBtn subbtn btn btn-primary my-2 my-sm-0" type="submit" >Subscribe To Our Newsletter</button>
+        <button class="TriiiiBtn subbtn btn btn-primary my-2 my-sm-0" type="submit" >Subscribe To Our Chronicles</button>
 
 
         <div id="hs_form_target_form_680875575">
@@ -357,6 +378,11 @@ img {
         </div>
     </div>
 
+    <div class="container" align="center" style="width:90vw">
+        <h4 style="margin-top:25px;" ><b>WE KNOW YOU ARE BUSY</b> <br/>
+        <b>ONE MINUTE</b> knowledge <b>VIDEOS</b> ON industry <b>UPADTE</b>  and technology that you need grow your business</h4>
+    </div>
+    
     <form action="{% url 'BlogPage' %}" method="POST" id="filterForm">{% csrf_token %}
         <div class="searchBlogs">
 
