@@ -139,15 +139,36 @@
         }
     }
 
+    .cntus-link{
+        color:#EA4B32 !important;
+    }
+
 
 </style>
 
 <div class="container">
     <h3>Contact Us</h3>
+    
+
+    <div class="row">
+        <div class="col-sm mapClass">
+            <iframe class="embededMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.808681770997!2d75.77959261504284!3d26.814219783170113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDQ4JzUxLjIiTiA3NcKwNDYnNTQuNCJF!5e0!3m2!1sen!2sin!4v1587976442613!5m2!1sen!2sin"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+
+        <div class="col-sm contactInfo" align="center">
+            <h4>Address</h4>
+            <p> Plot No. 6 Nagmani Coloney,Nagar Nigam Road <br/> Behind SBBJ Bank,Sanganer <br/> Jaipur, Rajasthan (302029) </p>
+            <h4> Contact </h4>
+            <p> +91 82396 07462 | +91 7976618532 </p>
+            <h4> Email </h4>
+            <p> Openinno7@gmail.com | triiii@gmail.com </p>
+        </div>
+    </div>
+
     <div class="contactForm">
     <form method="POST">{% csrf_token %}
     <div class="row">
-    <div class="col-md-6">
+        <div class="col-md-6">
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="firstname" class="inputlabel">
@@ -188,21 +209,6 @@
         </div>
         <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" type="submit" >SUBMIT</button>
         </form>
-    </div>
-
-    <div class="row">
-        <div class="col-sm mapClass">
-            <iframe class="embededMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.808681770997!2d75.77959261504284!3d26.814219783170113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDQ4JzUxLjIiTiA3NcKwNDYnNTQuNCJF!5e0!3m2!1sen!2sin!4v1587976442613!5m2!1sen!2sin"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
-
-        <div class="col-sm contactInfo" align="center">
-            <h4>Address</h4>
-            <p> Plot No. 6 Nagmani Coloney,Nagar Nigam Road <br/> Behind SBBJ Bank,Sanganer <br/> Jaipur, Rajasthan (302029) </p>
-            <h4> Contact </h4>
-            <p> +91 82396 07462 | +91 7976618532 </p>
-            <h4> Email </h4>
-            <p> Openinno7@gmail.com | triiii@gmail.com </p>
-        </div>
     </div>
 </div>
 

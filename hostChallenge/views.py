@@ -137,7 +137,7 @@ def challengesPage(request):
             ch = Challenges.objects.filter(title=chall).filter(date_posted=datepos).first()
             pro = Profile.objects.filter(user_id=request.user).first()
             Submissions.objects.create(challenge=ch,description=description,image=image,sfile=file1,submitted_by=pro)
-        return HttpResponseRedirect('/challenges/')
+            return HttpResponseRedirect('/challenges/')
     return render(request,'challenges.html',{'challenges':challenges})
 
 def challengeDetail(request,slug):
