@@ -45,7 +45,7 @@ def blogsPage(request):
         filterBlog = request.POST.get('filterBlog')
         searchBlog = request.POST.get('searchBlog')
         if filterBlog!='' and filterBlog is not None:
-            blogs = Blog.objects.filter(tags=filterBlog)
+            blogs = Blog.objects.filter(tags__icontains=filterBlog)
         else:
             blogs = Blog.objects.filter(Q(title__icontains = searchBlog)|Q(content__icontains = searchBlog))
 

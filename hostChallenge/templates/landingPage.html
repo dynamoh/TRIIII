@@ -56,7 +56,7 @@
 
     .bannerVideo{
         width: 100%;
-        height: 100vh !important;
+        height: 60vh !important;
         overflow: hidden;
         position: relative;
         margin-top:-64px;
@@ -97,7 +97,7 @@
     img {
         object-fit: contain;
         width:100%;
-        height:100%;
+        height:60%;
         z-index:-1;
         opacity:1;
     }
@@ -120,8 +120,8 @@
 
     .videoText {
         position: absolute;
-        top: 35%;
-        width: 392px;
+        top: 15%;
+        width: 800px;
         z-index: 9;
         color:white;
     }
@@ -281,17 +281,19 @@
     }
 
     .left{
-        margin-top:170px;
+        margin-top:120px;
         width: 288px;
         float: right;
-        border: 1px solid #808080;
+        background-color:rgba(220,220,220,0.6);
+        border-radius:25px;
+        padding:15px;
+        font-size:24px;
     }
 
     .left h2 {
         margin: 0px;
         padding: 5px;
         text-align: left;
-        border-bottom: 1px solid #808080;
         color: #0054c4;
     }
 
@@ -302,7 +304,6 @@
         list-style-type: none;
         padding-left: 17px;
         margin-top: 12px;
-        border-bottom: 1px solid #808080;
     }
 
     @media (max-width: 800px) {
@@ -324,16 +325,14 @@
         }
 
         .videoText {
-            position: relative;
-            z-index: 9;
-            color:black;
             width:auto;
             box-sizing:border-box;
             margin-top:100px;
         }
 
-        img{
-            display:none;
+        .carousel-item img{
+            height:60vh !important;
+            width:auto !important;
         }
 
         .lineSeperator{            
@@ -344,17 +343,17 @@
             background-color:white !important;
         }
 
-        .layerScreen{
+        {% comment %} .layerScreen{
             display:none;
-        }
+        } {% endcomment %}
 
-        .bannerVideo{
+        {% comment %} .bannerVideo{
             height:auto !important;
-        }
+        } {% endcomment %}
 
-        video{
+        {% comment %} video{
             margin-top:60px;
-        }
+        } {% endcomment %}
 
         .hditw{
             height:auto !important;
@@ -391,6 +390,17 @@
 
     .home-link{
         color:#EA4B32 !important;
+    }
+
+    .ppolicy:hover {
+        padding-top:15px !important;
+        opacity:0.6;
+        color:blue;
+        text-decoration:underline;
+    }
+
+    .ppolicy:hover{
+        opacity:1;
     }
 
   </style>
@@ -583,9 +593,10 @@
             </div>
         </div>
     </div>
+    <hr>
 
     <div class="container how-it-works" align="center">
-        <h2>How does it work</h2>
+        <h2>HOW DOES IT WORK</h2>
         <img style="height:80vh;width:75vw !important;" class="hditw" src="{% static 'images/NEW11.png' %}" />
     </div>
 
@@ -612,7 +623,7 @@
                     <div class="col-sm-3" style="margin-top:15px">
                         <h5>FOLLOW US</h5>
                         <p style="font-size:0.8em;">Please follow us on Social media in order to keep updated.</p>
-                        <ul class="contactUs">     
+                        <ul class="contactUs" style="margin-bottom:10px;" >     
                             <li class="iconLIst">
                             <a href="https://www.linkedin.com/in/triii-organization-3127181a7/" target="_blank" class="socialMediaIcon linkedIn">
                                 <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin" class="svg-inline--fa fa-linkedin fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
@@ -628,6 +639,7 @@
                             </a>
                             </li>
                         </ul>
+                        <a class="ppolicy" href="https://docs.google.com/document/d/1SygLzb-monMVnMc1nWIWwkB9rScrf8ml0ENHwlvV4Sc/edit" target="_blank">Privacy Policy</a>
                     </div>
 
                     <div class="col-sm-3" style="margin-top:15px">
