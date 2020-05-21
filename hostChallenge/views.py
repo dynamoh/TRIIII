@@ -244,3 +244,6 @@ def subscribenewsLetter(request):
             return HttpResponseRedirect('/')
         Subscribe.objects.create(name=name,email=email,company_name=company,phone=phone)
     return HttpResponseRedirect('/')
+
+def privacyPolicy(request):
+    return render(request,'privacyPolicy.html')

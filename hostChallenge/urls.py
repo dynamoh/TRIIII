@@ -4,7 +4,8 @@ from .views import (landingPage,ContactUsPage,
                     aboutusPage,profilePage,
                     challengesPage,challengeDetail,
                     services,employeePage,adminPage,
-                    createBlog,subscribenewsLetter)
+                    createBlog,subscribenewsLetter,
+                    privacyPolicy)
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -22,7 +23,8 @@ urlpatterns = [
     path('employee/3D--4de785db6fe964cfb5344a7ea2e2c10b980afd0f/',employeePage,name="EmployeePage"),
     path('mainadmin/',adminPage,name="AdminPage"),
     path('createBlog/',createBlog,name="CreateBlog"),
-    path('subscribe/',subscribenewsLetter,name="Subscribe")
+    path('subscribe/',subscribenewsLetter,name="Subscribe"),
+    path('privacy/',privacyPolicy,name="PrivacyPolicy")
 ]
 
 if(settings.DEBUG):
