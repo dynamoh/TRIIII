@@ -4,7 +4,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TRIIII</title>
-    
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -35,13 +35,12 @@
         color: #fff !important;
         padding: 0px 10px;
         cursor: pointer;
-        font-weight:800 !important;
+        font-weight:600;
         text-transform:uppercase;
-        letter-spacing: 1px;
     }
 
     .navbar{
-        background-color: black !important;
+        background-color:black !important;
         z-index:50 !important;
 
     }
@@ -53,7 +52,7 @@
     .navbar-toggler:focus {
         outline:none;
     }
-
+    
     .bannerVideo{
         width: 100%;
         height: 60vh !important;
@@ -170,9 +169,6 @@
         border:none;
     }
 
-    .one{
-        margin-left:50px;
-    }
 
     video{
         margin-top:100px;
@@ -498,7 +494,7 @@
                                 SAVE MONEY AND GET ULTIMATELY PROFIT  </p>
                             <div class="bannerBtn clearfix">
                                 <button class="btn TriiiiBtn mr-3 pull-left" data-toggle="modal" data-target=".bd-example-modal-lg" >Launch Challenge</button>
-                                <button class="btn TriiiiBtn mr-3 pull-left" type="submit">Solve Challenge</button>
+                                <a href="{% url 'ChallengesPage' %}" ><button class="btn TriiiiBtn mr-3 pull-left" type="submit">Solve Challenge</button></a>
                             </div>
                         </div>
                     </div>

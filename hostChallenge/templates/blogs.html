@@ -384,7 +384,7 @@ img {
             
         </div>
         <div class="row">
-            <button class="TriiiiBtn subbtn btn btn-primary my-2 my-sm-0" type="submit" >Join</button>
+            <button class="TriiiiBtn subbtn btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#subscribeModalj" type="submit" >Join</button>
             {% if user.is_authenticated %}
                 <button class="TriiiiBtn subbtn1 btn btn-primary my-2 my-sm-0" id="subscribeSubmit" data-toggle="modal" data-target="#blogModal" >Write a blog</button>
             {% endif %}
@@ -423,6 +423,61 @@ img {
         <a href="#" onClick="filterBlogs(this);" class="pill topic-link">Manpower</a>
         <a href="#" onClick="filterBlogs(this);" class="pill topic-link selected">Quality</a>
         <a href="#" onClick="filterBlogs(this);" class="pill topic-link">Marketing</a>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="subscribeModalj" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" style="color:black !important;" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Subscribe to our Chronicles</h5>
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form enctype="multipart/form-data" action="{% url 'Subscribe' %}" method="POST">{% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group" >
+                                <label for="exampleInputEmail1">Name</label>
+                                <input required type="text" name="name" placeholder="Enter Name" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group" >
+                                <label for="exampleInputEmail1">Email</label>
+                                <input required type="text" name="email" placeholder="Enter Email" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group" >
+                                <label for="exampleInputEmail1">Company Name</label>
+                                <input  type="text" name="company" placeholder="Enter Company Name" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group" >
+                                <label for="exampleInputEmail1">Phone</label>
+                                <input required type="text" name="phone" placeholder="Enter Phone number" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <button class="btn TriiiiBtn mr-3 pull-left" style="width:100%;" type="submit">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
     </div>
 
     
