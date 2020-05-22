@@ -32,17 +32,14 @@ def not_activated(request):
 def signup(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
-        print(request.POST)
         email_check = request.POST.get('email')
         obj = User.objects.filter(email=email_check).first()
         if obj:
             return render(request,'signup_failure_page.html',{'message':'This Email has already been taken!!'})
         if form.errors:
             return render(request,'signup_failure_page.html',{'message':'User with this Username already exists ,Try another username!!'})
-        print(form.is_valid())
         if form.is_valid():
             user = form.save(commit=False)
-            print("aagaya")
             user.is_active = False
             user.set_password(form.cleaned_data.get('password'))
             user.save()

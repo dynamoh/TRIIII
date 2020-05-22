@@ -178,11 +178,8 @@
         display:none;
       }
 
-      .lbc{
-        font-size:90%;
-        margin-left:8px;
-        z-index:100;
-        margin-top:-3px !important;
+      .leftSec{
+        display:none !important;
       }
 
       #tmcbox{
