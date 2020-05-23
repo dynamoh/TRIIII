@@ -17,7 +17,8 @@ class ContactUsAdmin(admin.ModelAdmin):
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title','tags', 'author','datePosted')
+    list_display = ('title','tags', 'author','datePosted','approved')
+    list_filter = ('approved',)
     ordering = ('-datePosted',)
     search_fields = ('title','tags', 'author')
 

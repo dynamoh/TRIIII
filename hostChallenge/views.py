@@ -40,14 +40,14 @@ def ContactUsPage(request):
     return render(request,'contactus.html')
 
 def blogsPage(request):
-    blogs = Blog.objects.all()
+    blogs = Blog.objects.all().filter(approved=True)
     if request.method == 'POST':
         filterBlog = request.POST.get('filterBlog')
         searchBlog = request.POST.get('searchBlog')
         if filterBlog!='' and filterBlog is not None:
-            blogs = Blog.objects.filter(tags__icontains=filterBlog)
+            blogs = Blog.objects.filter(tags__icontains=filterBlog).filter(approved=True)
         else:
-            blogs = Blog.objects.filter(Q(title__icontains = searchBlog)|Q(content__icontains = searchBlog))
+            blogs = Blog.objects.filter(Q(title__icontains = searchBlog)|Q(content__icontains = searchBlog)).filter(approved=True)
 
     return render(request,'blogs.html',{'blogs':blogs})
 
@@ -205,7 +205,7 @@ def createBlog(request):
         content = request.POST.get('content')
         video = request.FILES.get('video')
         profile = Profile.objects.filter(user_id = request.user).first()
-        Blog.objects.create(title=title,tags=tags,content=content,video=video,author=profile)
+        Blog.objects.create(title=title,tags=tags,content=content,video=video,author=profile,approved=False)
 
         subs = Subscribe.objects.all()
 

@@ -37,7 +37,8 @@ class Blog(models.Model):
     author = models.ForeignKey(Profile,on_delete=models.CASCADE)
     slug = models.SlugField()
     datePosted = models.DateField(auto_now_add=True)
-    tags = models.CharField(max_length=100,choices = Constants.TAGS)
+    tags = models.CharField(max_length=1000)
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

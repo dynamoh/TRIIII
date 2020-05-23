@@ -112,33 +112,3 @@ def login_user(request):
             val=3
     return render(request,'registration/login.html',{'error':'Please Enter correct username and password !!','val':val})
 
-
-def change_password(request):
-    # val=3
-    # usb = User.objects.filter(email=request.user.email).first()
-    # stud_info = StudentInfo.objects.filter(student_id=usb).first()
-    # if request.method == 'POST':
-    #     print(request.POST)
-    #     form = PasswordChangeForm(request.user, request.POST)
-    #     val=3
-    #     print("erro")
-    #     if form.is_valid():
-    #         user = form.save()
-    #         update_session_auth_hash(request, user)  # Important!
-    #         messages.success(request, 'Your password was successfully updated!')
-    #         val=0
-    #         return render(request,'change_password.html',{'message':'Your password was successfully updated!','val':val,'stud_info':stud_info})
-    #     else:
-    #         messages.error(request, 'Please correct the error below.')
-    #         val=1
-    #         if request.POST.get('new_password1') != request.POST.get('new_password2'):
-    #             val=3
-    #             return render(request,'change_password.html',{'message':'Your new password and confirmation dont match.!!','val':val,'stud_info':stud_info})
-    #         return render(request,'change_password.html',{'message':'Current Password is incorrect!!','val':val,'stud_info':stud_info})
-    # else:
-    #     form = PasswordChangeForm(request.user)
-
-    # return render(request, 'change_password.html', {
-    #     'form': form,'val':2,'stud_info':stud_info
-    # })
-    pass

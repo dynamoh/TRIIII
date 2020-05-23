@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LoginView,LogoutView,PasswordResetView,PasswordResetDoneView,PasswordResetConfirmView,PasswordResetCompleteView
-from .views import signup,login_user,signup_success,signup_failure,change_password,activate,activated,not_activated
+from .views import signup,login_user,signup_success,signup_failure,activate,activated,not_activated
 
 urlpatterns = [
     path('signup/success/', signup_success,name="signup_success_page"),
@@ -31,5 +31,4 @@ urlpatterns = [
     path('password_reset/done', PasswordResetDoneView.as_view(template_name='registration/passwordresetdone.html'),name='password_reset_done'),
     path('reset/<uidb64>[0-9A-Za-z_\-]/<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20}/', PasswordResetConfirmView.as_view(template_name='registration/passwordresetconfirm.html'),name="password_reset_confirm"),
     path('reset/done/', PasswordResetCompleteView.as_view(template_name='registration/passwordresetcomplete.html'), name="password_reset_complete"),
-    path('change_password/', change_password, name='change_password'),
 ]
