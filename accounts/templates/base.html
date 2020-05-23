@@ -405,6 +405,7 @@
                             <li><a class="ftlink" href="{% url 'ChallengesPage' %}">Challenges</a></li>
                             <li><a class="ftlink" href="{% url 'AboutPage' %}">About</a></li>
                             <li><a class="ftlink" href="{% url 'ContactUS' %}">Contact</a></li> 
+                            <li><a class="ftlink" href="">Resources</a></li> 
                         </ul>
                     </div>
 
@@ -457,7 +458,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group" >
                                                     <label for="exampleInputEmail1">Email</label>
-                                                    <input required type="text" name="email" placeholder="Enter Email" class="form-control" />
+                                                    <input required type="email" name="email" placeholder="Enter Email" class="form-control" />
                                                 </div>
                                             </div>
                                         </div>
@@ -473,7 +474,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group" >
                                                     <label for="exampleInputEmail1">Phone</label>
-                                                    <input required type="text" name="phone" placeholder="Enter Phone number" class="form-control" />
+                                                    <input required type="tel" maxlength="10" minlength="10" pattern="[0-9]{10}" name="phone" placeholder="9999999999" class="form-control" />
                                                 </div>
                                             </div>
                                         </div>

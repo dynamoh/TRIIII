@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
-
+import os
 from django.core.mail import EmailMessage
 from datetime import timedelta,datetime
 
@@ -14,6 +14,9 @@ from .models import ContactUs,Blog,Challenges,ChallengeContacts,Submissions,Subs
 
 # Create your views here.
 def landingPage(request):
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    print(MEDIA_ROOT)
     if request.method=='POST':
         company_name = request.POST.get('company_name')
         email = request.POST.get('email')
@@ -137,7 +140,7 @@ def challengesPage(request):
             ch = Challenges.objects.filter(title=chall).filter(date_posted=datepos).first()
             pro = Profile.objects.filter(user_id=request.user).first()
             Submissions.objects.create(challenge=ch,description=description,image=image,sfile=file1,submitted_by=pro)
-            return HttpResponseRedirect('/challenges/')
+            return render(request,'challenges.html',{'challenges':challenges,'message':'Your Solution has been Submitted.'})
     return render(request,'challenges.html',{'challenges':challenges})
 
 def challengeDetail(request,slug):

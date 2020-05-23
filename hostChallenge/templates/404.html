@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .hero__title {
+            color: #241c15;
+            font-family: Cooper,Georgia,Times,Times New Roman,serif;
+            font-size: 74px;
+            font-weight: 300 !important;
+            letter-spacing: .0625rem;
+            line-height: 1;
+            margin-top:100px;
+            text-align:center;
+        }
+
+        .hero__copy {
+            margin-top: 1.875rem;
+            font-size: 1.5rem;
+            letter-spacing: 0;
+            color: #241c15;
+            font-family: Graphik Web,Helvetica Neue,Helvetica,Arial,Verdana,sans-serif;
+            font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 0;
+            line-height: 1.4;
+            text-align:center;
+        }
+
+        @media (max-width:800px) {
+            .errimg {
+                width:80vw !important;
+                height:auto !important;
+            }
+
+            .hero__title{
+                font-size:36px;
+            }
+
+            .hero__copy{
+                font-size: 1.2rem;
+            }            
+        }
+    </style>
+
+    <div class="container" >
+        <h1 class="hero__title h1">
+            We lost this page
+        </h1>
+        <p class="hero__copy h6">
+            We searched high and low but couldn’t find what you’re looking for. <br/>Let’s find a better place for you to go.
+        </p>
+        <div align="center">
+            <img style="height:50vh;width:40vw;" class="errimg" src="{% static 'images/404Horse.gif' %}" />
+        </div>
+    </div>
+
+{% endblock %}
