@@ -129,22 +129,22 @@ def challengesPage(request):
         status = request.POST.get('status')
         search = request.POST.get('searchbox')
         discipline = request.POST.get('discipline')
-        description = request.POST.get('description')
-        image = request.FILES.get('image')
-        file1 = request.FILES.get('file')
-        datepos = request.POST.get('datepos')
-        chall = request.POST.get('challenge')
-        if chall == '' or chall == None:
-            challenges = Challenges.objects.filter(approved=True).filter(Q(title__icontains = search)|Q(description__icontains = search)).filter(status__icontains=status).filter(category__icontains=discipline).order_by('-date_posted')
-        else:
-            ch = Challenges.objects.filter(title=chall).filter(date_posted=datepos).first()
-            pro = Profile.objects.filter(user_id=request.user).first()
-            Submissions.objects.create(challenge=ch,description=description,image=image,sfile=file1,submitted_by=pro)
-            return render(request,'challenges.html',{'challenges':challenges,'message':'Your Solution has been Submitted.'})
+        challenges = Challenges.objects.filter(approved=True).filter(Q(title__icontains = search)|Q(description__icontains = search)).filter(status__icontains=status).filter(category__icontains=discipline).order_by('-date_posted')            
     return render(request,'challenges.html',{'challenges':challenges})
 
 def challengeDetail(request,slug):
     challenge_obj = get_object_or_404(Challenges, slug=slug)
+    if request.method == 'POST' and request.user.is_authenticated:
+        description = request.POST.get('desc')
+        image = request.FILES.get('image')
+        file1 = request.FILES.get('file')
+        datepos = request.POST.get('datepos')
+        chall = request.POST.get('challenge')
+
+        ch = Challenges.objects.filter(title=chall).filter(date_posted=datepos).first()
+        pro = Profile.objects.filter(user_id=request.user).first()
+        Submissions.objects.create(challenge=ch,description=description,image=image,sfile=file1,submitted_by=pro)
+        return render(request,'challengeDetail.html',{'challenge':challenge_obj,'message':'Your Solution has been Submitted.'})
     return render(request,'challengeDetail.html',{'challenge':challenge_obj})
 
 def services(request):
