@@ -246,6 +246,23 @@ def subscribenewsLetter(request):
         if obj:
             return HttpResponseRedirect('/')
         Subscribe.objects.create(name=name,email=email,company_name=company,phone=phone)
+        current_site = get_current_site(request)
+
+        mail_subject = '[noreply] Thank you for subscribing at TRIIII'
+        msg = 'Thank you for subscribing to TRIIII. We will keep you updated about our blogs.'
+
+        user = name
+        message = render_to_string('emailsubscribed.html', {
+            'user': user,
+            'domain': current_site.domain,
+            'msg':msg,
+        })
+        to_email = email
+        email = EmailMessage(
+                    mail_subject, message, to=[to_email]
+        )
+        email.send()
+
     return HttpResponseRedirect('/')
 
 def privacyPolicy(request):
