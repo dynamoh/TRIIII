@@ -635,7 +635,7 @@
                             <li><a class="ftlink" href="{% url 'ChallengesPage' %}">Challenges</a></li>
                             <li><a class="ftlink" href="{% url 'AboutPage' %}">About</a></li>
                             <li><a class="ftlink" href="{% url 'ContactUS' %}">Contact</a></li> 
-                            <li><a class="ftlink" href="">Resources</a></li> 
+                            <li><a class="ftlink" href="{% url 'Resources' %}">Resources</a></li> 
                         </ul>
                     </div>
 
@@ -658,7 +658,8 @@
                             </a>
                             </li>
                         </ul>
-                        <a class="ppolicy" href="{% url 'PrivacyPolicy' %}" target="_blank">Privacy Policy</a>
+                        <a class="ppolicy" href="{% url 'PrivacyPolicy' %}" target="_blank">Privacy Policy</a><br/>
+                        <a class="ppolicy" href="{% url 'TermsOfUse' %}" target="_blank">Terms of use</a>
                     </div>
 
                     <div class="col-sm-3" style="margin-top:15px">

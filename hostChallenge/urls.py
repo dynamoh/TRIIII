@@ -5,7 +5,7 @@ from .views import (landingPage,ContactUsPage,
                     challengesPage,challengeDetail,
                     services,employeePage,adminPage,
                     createBlog,subscribenewsLetter,
-                    privacyPolicy)
+                    privacyPolicy,resources,termsofuse)
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
@@ -25,7 +25,9 @@ urlpatterns = [
     path('realms786admin/',adminPage,name="AdminPage"),
     path('createBlog/',createBlog,name="CreateBlog"),
     path('subscribe/',subscribenewsLetter,name="Subscribe"),
-    path('privacy/',privacyPolicy,name="PrivacyPolicy")
+    path('privacy/',privacyPolicy,name="PrivacyPolicy"),
+    path('resources',resources,name="Resources"),
+    path('termsofuse',termsofuse,name="TermsOfUse")
 ]
 
 if settings.DEBUG:

@@ -267,3 +267,9 @@ def subscribenewsLetter(request):
 
 def privacyPolicy(request):
     return render(request,'privacyPolicy.html')
+
+def termsofuse(request):
+    return render(request,'terms.html')
+
+def resources(request):
+    return render(request,'resources.html')

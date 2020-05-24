@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style>
+.hero-banner-slim:first-child {
+    width: 100%;
+    padding-bottom: 5%;
+    background-position: center !important;
+}
+
+.frontpage-hero, .hero-banner-slim {
+    max-width: none;
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 100%;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    position: relative;
+    height:70vh !important;
+}
+
+h1.hero-header {
+    font-weight: 700;
+    font-size: 3em;
+    line-height: 1.2em;
+    letter-spacing: 0.5px;
+    font-family: Source Sans Pro, Noto Sans,Helvetica,Arial,sans-serif;
+}
+
+h2.hero-sub-header {
+    margin: 0;
+    font-size: 1.2em;
+    color: #666;
+    font-weight: bold;
+    line-height: 1.2em;
+    padding-top: 10px;
+}
+
+.imgText{
+    position:absolute;
+    margin-top:25vh;
+    margin-left:30vw;
+    text-align:center;
+}
+</style>
+
+<div class="row-fluid ">
+    <div class="span12 hero-banner-slim " style="background: linear-gradient(to bottom, rgba(256, 256, 256, 0.6),rgba(256, 256, 256, 0.2)),url('{% static "images/back.jpg" %}');" data-widget-type="cell" data-x="0" data-w="12">
+
+    <div class="span12" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+    <div class="row-fluid ">
+
+    <div class="imgText">
+        <h1 class="hero-header">RESOURCES</h1>
+        <h2 class="hero-sub-header" 
+            style="color:black;text-transform:uppercase;font-family: 'pt-sans';font-weight:400 !important;"
+        >WE WILL BE UPDATING OUR RESOURCES SOON</br></h2><br/>
+        
+    </div>
+    
+    <div id="hs_form_target_form_680875575">
+
+    </span></div>
+
+
+    </div>
+
+    </div>
+</div>
+{% endblock %}
