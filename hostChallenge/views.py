@@ -212,13 +212,10 @@ def createBlog(request):
 
         subs = Subscribe.objects.all()
 
-        
         current_site = get_current_site(request)
 
-        cb = Blog.objects.filter(title=title).first()
-
         mail_subject = '[noreply] New Blog Posted at TRIIII'
-        msg = 'A new blog "' + title + '" has been posted on our website. Please check it out.'
+        msg = 'A new blog has been posted on our website. Please check it out.'
 
         for i in subs:
             user = i.name
@@ -226,14 +223,17 @@ def createBlog(request):
                 'user': user,
                 'domain': current_site.domain,
                 'msg':msg,
-                'slug':cb.slug,
             })
             to_email = i.email
             email = EmailMessage(
                         mail_subject, message, to=[to_email]
             )
-            email.send()
-
+            try:
+                email.send()
+            except:
+                continue
+        blogs = Blog.objects.all().filter(approved=True)
+        return render(request,'blogs.html',{'message':'Your blog has been sent to admin for approval.You can see it here after it gets approved.','blogs':blogs})
     return HttpResponseRedirect('/chronicles/')
 
 def subscribenewsLetter(request):

@@ -372,6 +372,15 @@ img {
     color:#EA4B32 !important;
 }
 
+.sccsmsg {
+    z-index:500;
+    margin-top:70px;
+    opacity:1;
+    width:75vw;
+    margin-left:6vw;
+    text-align:center;
+}
+
 </style>
 
 
@@ -413,6 +422,14 @@ img {
         <h4 style="margin-top:25px;" ><b></b> <br/>
         <b></h4>
     </div> {% endcomment %}
+    {% if message %}
+        <div class="alert alert-success alert-dismissible fade show sccsmsg" role="alert">
+            <strong>Congratulations !!</strong> {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <b> <span aria-hidden="true">&times;</span></b>
+            </button>
+        </div>
+    {% endif %}
     
     <form action="{% url 'BlogPage' %}" method="POST" id="filterForm">{% csrf_token %}
         <div class="searchBlogs">

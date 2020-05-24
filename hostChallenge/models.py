@@ -20,6 +20,14 @@ class Constants:
         ('Automation','Automation'),
     )
 
+class Subscribe(models.Model):
+    name = models.CharField(max_length=500)
+    email = models.EmailField()
+    company_name = models.CharField(max_length=1000,blank=True,null=True)
+    phone = models.CharField(max_length=12)
+
+    def __str__(self):
+        return self.name
 
 class ContactUs(models.Model):
     name = models.CharField(max_length=500)
@@ -31,7 +39,7 @@ class ContactUs(models.Model):
         return self.name
 
 class Blog(models.Model):
-    title = models.CharField(max_length=4000,unique=True)
+    title = models.CharField(max_length=4000)
     content = models.TextField()
     video = models.FileField()
     author = models.ForeignKey(Profile,on_delete=models.CASCADE)
@@ -45,8 +53,13 @@ class Blog(models.Model):
     
     def save(self,*args,**kwargs):
         str1 = self.title
-        self.slug = slugify(str1)
+        str2 = self.datePosted
+        self.slug = slugify(str1+str(str2))
         super(Blog,self).save(*args,**kwargs)
+        print(Subscribe.objects.all())
+
+    class Meta:
+        unique_together = ('title','datePosted')
 
 class Challenges(models.Model):
     title = models.CharField(max_length=1000)
@@ -100,12 +113,3 @@ class Submissions(models.Model):
 
     def __str__(self):
         return self.challenge.title
-
-class Subscribe(models.Model):
-    name = models.CharField(max_length=500)
-    email = models.EmailField()
-    company_name = models.CharField(max_length=1000,blank=True,null=True)
-    phone = models.CharField(max_length=12)
-
-    def __str__(self):
-        return self.name
