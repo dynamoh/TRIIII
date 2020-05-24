@@ -52,14 +52,17 @@ h2.hero-sub-header {
 }
 
 .subbtn,subbtn1{
+    width:180px !important;
     position:absolute;
-    margin-top:4vh !important;
-    margin-left:70vw;
+    margin-top:-7vh !important;
+    margin-left:67vw;
 }
 
 .subbtn1{
-    margin-left:80vw;
-    margin-top:4vh !important;
+    width:180px !important;
+    margin-left:82vw;
+    position:absolute;
+    margin-top:-7vh !important;
 }
 
 .TriiiiBtn{
@@ -372,24 +375,20 @@ img {
 
 
     <div class="row-fluid ">
-        <div class="span12 hero-banner-slim " style="background: linear-gradient(to bottom, rgba(256, 256, 256, 0.6),rgba(256, 256, 256, 0.2)),url('https://www.viima.com/hubfs/Banners_and_backgrounds/viima-pink-ball-bg.jpg');" data-widget-type="cell" data-x="0" data-w="12">
+        <div class="span12 hero-banner-slim " style="background: linear-gradient(to bottom, rgba(256, 256, 256, 0.6),rgba(256, 256, 256, 0.2)),url('{% static "images/back.jpg" %}');" data-widget-type="cell" data-x="0" data-w="12">
 
         <div class="span12" style="" data-widget-type="cell" data-x="0" data-w="12">
 
         <div class="row-fluid ">
 
         <div class="imgText">
-            <h1 class="hero-header">Chronicles</h1>
-            <h2 class="hero-sub-header" style="color:black;text-transform:uppercase;font-family: 'pt-sans';font-weight:400 !important;">WE KNOW YOU ARE BUSY</br> ONE MINUTE knowledge VIDEOS ON industry UPDATE  and technology that you need grow your business</h2><br/>
+            <h1 class="hero-header">CHRONICLES</h1>
+            <h2 class="hero-sub-header" 
+                style="color:black;text-transform:uppercase;font-family: 'pt-sans';font-weight:400 !important;"
+            >WE KNOW YOU ARE BUSY</br> ONE MINUTE KNOWLEDGE VIDEOS ON INDUSTRIES UPDATES AND TECHNOLOGIES THAT YOU NEED TO GROW YOUR BUSINESS</h2><br/>
             
         </div>
-        <div class="row">
-            <button class="TriiiiBtn subbtn btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#subscribeModalj" type="submit" >Join</button>
-            {% if user.is_authenticated %}
-                <button class="TriiiiBtn subbtn1 btn btn-primary my-2 my-sm-0" id="subscribeSubmit" data-toggle="modal" data-target="#blogModal" >Write a blog</button>
-            {% endif %}
-        </div>
-
+        
         <div id="hs_form_target_form_680875575">
 
         </span></div>
@@ -400,16 +399,24 @@ img {
         </div>
     </div>
 
-    <div class="container" align="center" style="width:90vw">
+    <div class="row">
+        <button class="TriiiiBtn subbtn btn btn-primary my-2 my-sm-0" style="background-color:yellow !important;opacity:0.9;" data-toggle="modal" data-target="#subscribeModalj" type="submit" >Join Chronicles</button>
+        {% if user.is_authenticated %}
+            <button class="TriiiiBtn subbtn1 btn btn-primary my-2 my-sm-0" style="background-color:green !important;" id="subscribeSubmit" data-toggle="modal" data-target="#blogModal" >Post a Chronicle</button>
+        {% endif %}
+    </div>
+
+
+    {% comment %} <div class="container" align="center" style="width:90vw">
         <h4 style="margin-top:25px;" ><b></b> <br/>
         <b></h4>
-    </div>
+    </div> {% endcomment %}
     
     <form action="{% url 'BlogPage' %}" method="POST" id="filterForm">{% csrf_token %}
         <div class="searchBlogs">
 
         </div>
-        <div class="form-group col-sm-6 searchform" style="display:flex;margin-top:30px;margin-left:25vw;margin-bottom:-20px;" align="center">
+        <div class="form-group col-sm-6 searchform" style="display:flex;margin-top:5px;margin-left:25vw;margin-bottom:-20px;" align="center">
             <input type="text" class="form-control" id="exampleInputEmail1" name="searchBlog" aria-describedby="emailHelp" placeholder="Search Blogs">
             <button type="submit"  style="margin-top:2px;margin-left:15px;" class="TriiiiBtn btn btn-primary">Search</button>
         </div>

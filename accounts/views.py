@@ -46,7 +46,7 @@ def signup(request):
             user.refresh_from_db()
             current_site = get_current_site(request)
             mail_subject = '[noreply] Activate your Account'
-            msg = 'Thanks for signing up, welcome to TRII. We are always ready to help You.'
+            msg = 'Thanks for Signing up with TRIIII. TRIIII is an Open Innovation- community base platform where we allow the SOLUTION SEEKERS to connect with PROBLEM SOLVERS'
             message = render_to_string('acc_email_active.html', {
                 'user': user,
                 'domain': current_site.domain,

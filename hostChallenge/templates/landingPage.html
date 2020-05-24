@@ -138,7 +138,7 @@
         border-radius: 0;
         border: none;
         padding: 10px 15px;
-        background-color: #EA4B32;
+        background-color: #3BF508 ;
         color: #fff;
         font-family: 'roboto', sans-serif;
         font-weight: 800 !important;
@@ -147,7 +147,7 @@
     .TriiiiBtn:hover{
         width:auto;
         color: #fff;
-        background: #C02E16;
+        background: #3BF508 ;
         outline:none;
     }
 
@@ -240,7 +240,7 @@
         border-radius: 0;
         border: none;
         padding: 10px 15px;
-        background-color: #EA4B32;
+        background-color: #3BF508 ;
         color: #fff;
         font-family: 'roboto', sans-serif;
         font-weight: 800 !important;
@@ -483,13 +483,13 @@
         </div>
     </nav>
     <div class="bannerVideo">
-        <div class="layerScreen"></div>
+        {% comment %} <div class="layerScreen"></div> {% endcomment %}
         <div id="carouselExampleControlsTwo" class="carousel slide videoCarousel largeView" data-ride="carousel" data-interval="false">
             <div class="carousel-inner"> 
                 <div class="carousel-item active">
                     <div class="container">
                         <div class="videoText">
-                            <h2 class="hdd">TRIIII – We Understand Your Problem </h2>
+                            <h2 class="hdd">We Understand Your Problem </h2>
                             <p style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;" >A NEW, FAST AND EASY APPROACH TO REDUCE YOUR COST AND SOLVE YOUR FACTORY PROBLEMS, 
                                 SAVE MONEY AND GET ULTIMATELY PROFIT  </p>
                             <div class="bannerBtn clearfix">
@@ -498,7 +498,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="{% static 'images/battlebots.jpg' %}">
+                    <img src="{% static "images/back.jpg" %}">
                 </div>  
             </div>
         </div>
@@ -600,7 +600,21 @@
 
     <div class="container how-it-works" align="center">
         {% comment %} <h2>HOW DOES IT WORK</h2> {% endcomment %}
-        <img style="height:80vh;width:75vw !important;" class="hditw" src="{% static 'images/NEW11.png' %}" />
+        <div class="row">
+            <div class="col-md-8">
+                <img style="height:70vh;width:100% !important;" class="hditw" src="{% static 'images/NEW11.png' %}" />
+            </div>
+            <div class="col-md-4">
+                <div class="left">
+                    <h2>Chronicles</h2>
+                    <ul class="liststyle">
+                        <p style="font-size:16px;text-align:left;padding:10px;">WE KNOW YOU ARE BUSY </br> ONE MINUTE KNOWLEDGE VIDEOS ON INDUSTRIES UPDATES AND TECHNOLOGIES THAT YOU NEED TO GROW YOUR BUSINESS</p>
+                        <li><a href="{% url 'BlogPage' %}" style="color:blue !important" >Read More ...</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
     </div>
 
 
