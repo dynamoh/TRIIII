@@ -35,3 +35,5 @@ if settings.DEBUG:
 
 if not settings.DEBUG:
     urlpatterns += [ path('media/<str:path>/', serve,{'document_root': settings.MEDIA_ROOT}), path('static/<str:path>/', serve,{'document_root': settings.STATIC_ROOT}), ]
+
+# 

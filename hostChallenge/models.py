@@ -14,6 +14,7 @@ class Constants:
     )
 
     CATEGORY = (
+        ('General','General'),
         ('Marketing' ,'Marketing'),
         ('Energy','Energy'),
         ('Iot','Iot'),
