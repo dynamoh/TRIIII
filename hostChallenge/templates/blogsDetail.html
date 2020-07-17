@@ -3,93 +3,127 @@
 {% block content %}
 
     <style>
-        .section-header{
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 35px;
+        
+        .mainBody {
+            background-color: #F8F9FA;
+            padding: 19px;
+            border: 1px solid #899EB1;
+            margin-top: 65px;
         }
 
-        .blogD {
-            float: none;
-            max-width: 1080px;
-            margin: 70px auto;
-            width: 70%;
+        .chfirst {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #899EB1;
+            border-left: 1px solid #899EB1;
+            border-right: 1px solid #899EB1;
+            border-top: 4px solid #899EB1;
+            padding-top: 15px;
+            margin-left:.5%;
         }
 
-        .blogDate {
+        .imgThumb {
+            display: inline-block;
+            max-width: 100%;
+            height: 120px;
+            padding: 4px;
+            line-height: 1.42857143;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            -webkit-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            margin-left:20px;
+            margin-top:38%;
+        }
+
+        .challengeName{
+            border-bottom: 1px solid #CCCCCC;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            line-height: 1.1;
+            color: #899EB1;
+            font-size: 1.5em;
+            font-family: 'Netto Regular', arial, verdana, helvetica, sans-serif;
+            margin-left:25px;
+        }
+
+        .row{
+            width:99%;
+        }
+
+        .tags{
+            color: #000000;
+            font-size: 14px;
+            padding: .2em .6em .3em;
+            margin-left:25px;
+        }
+
+        .deadline, .posted{
+            margin-left:38px;
+        }
+
+        .extra{
+            background-color: #f8f8f8;
+            height: 30px;
+            font-size: 11px;
+            border-top: 1px solid #e7e7e7;
+            margin-top:15px;
+        }
+
+        .abstractHead{
+            background-color: #899EB1;
+            font-size: 18px;
+            padding: 6px 20px;
+            font-weight: bold;
+            width:99%;
+            margin-left:0.5%;
+            margin-top:25px;
+        }
+
+        .abstractContent {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            line-height: 1.42857143;
+            color: #333;
+            width:95%;
+            margin-left:2.5%;
+            margin-top:25px;
+        }
+
+        .author-info {
+            bottom: 0;
+            margin: 10px;
             height: 40px;
             line-height: 40px;
-            font-weight: bold;
-            color: #999;
+            margin-left:30px;
         }
 
-        .author-img {
+        img.author-profile-pic {
             border-radius: 40px;
             height: 40px;
             width: 40px;
             display: inline-block;
-        }
-
-        .author-name {
-            color: #999;
-            font-weight: bold;
-            margin-left: 10px;
-            display: inline-block;
-            height: 40px;
-            line-height: 40px;
-        }
-
-        .tag {
-            font-weight: 700 !important;
-            color: #777 !important;
-            margin: 5px 0 0 0;
-        }  
-
-        .tag {
-            display: inline-block;
-            height: 32px;
-            font-size: 13px;
-            font-weight: 700 !important;
-            color: rgba(0,0,0,0.6);
-            line-height: 32px;
-            padding: 0 12px;
-            border-radius: 16px;
-            background-color: #e4e4e4;
-            cursor:pointer;
-            margin-right:10px;
-        }  
-
-        .tag:hover {
-            color: #1cb5f2 !important;
-            text-decoration: none;    
-        }
-
-        .content {
-            color: #666;
-            font-family: Noto Sans,Helvetica,Arial,sans-serif;
-            margin-top:30px;
-        }
-
-        .video{
-            margin:30px 5px;
+            margin-right:5px;
         }
 
         @media (max-width:800px) {
-            .blogD {
-                float: none;
-                max-width: 1080px;
-                margin: 70px auto;
-                width: 90%;
+            .chfirst{
+                margin-left:2%;
             }
 
-            video{
-                margin:30px 5px;
-                margin-left:-25px;
+            .deadline, .posted{
+                margin-left:18px;
+            }
+
+            .blog-card-preview-image{
+                width:100% !important;
                 height:auto !important;
-                width:80vw !important;
-                display:grid;
+                display:grid !important;
             }
         }
+        
 
         .chronicles-link{
             color:white !important;
@@ -100,25 +134,42 @@
 
     <div class="container blogD">
     <div class="container">
-        <h1 class="section-header"> {{blog.title}} </h1>
-        <p class="blogDate"> {{blog.datePosted}} </p>
-        <div class="authorInfo">
-            <img class="author-img" src="/media/{{blog.author.avatar}}" />
-            <p class="author-name" > {{blog.author.full_name}} </p>
-        </div>
-        <div class="row">
-        {% for i in tags %}
-            <a class="tag" > {{i}} </a>
-        {% endfor %}
-        </div>
-        <div class="video">
-            <video width="100%" height="100%" controls="" muted="" loop="">
-                <source src="/media/{{blog.video}}" type="video/mp4">
-            </video> 
-        </div>
-        <p class="content"> {{blog.content}} </p>
 
-        
+        <div class="mainBody">
+            <div class="chfirst row">
+                <div class="col-md-2">
+                    <img src="/media/{{blog.thumbnail}}" class="imgThumb" >
+                </div>
+
+                <div class="col-md-8">
+                    <p class="challengeName"> {{blog.title}}  </p>
+                    <p class="tags"> <b>TAGS :</b> {{blog.tags}} </p>
+                    <span class="posted">Posted : {{blog.datePosted}} </span>
+                </div>
+
+                <div class="extra col-md-12">
+
+                </div>
+            </div>
+
+            <div class="abstract">
+                <p class="abstractHead">Description</p>
+                <p class="abstractContent">{{blog.content}}</p>
+            </div>
+
+            {% if blog.video %}
+            <p class="abstractHead">Photos/Videos</p>
+            <div class="files row" style="margin-top:25px;margin-left:1.5%;">
+                <div class="col-md-12" style="margin-top:30px;">
+                    <video class="blog-card-preview-image" width="100%" height="100%" controls="" autoplay="true" muted="" loop="">
+                        <source src="/media/{{blog.video}}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+
     </div>
     </div>
 

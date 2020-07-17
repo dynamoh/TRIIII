@@ -57,9 +57,6 @@ h2.hero-sub-header {
     text-align:center;
 }
 
-.subbtn {
-    margin-left:35%;
-}
 
 .subbtn, .subbtn1{
     width:180px !important;
@@ -439,7 +436,7 @@ img {
 
     .hero-header{
         font-size:18px !important;
-        margin-top:15px !important;
+        margin-top:-21px !important;
     }
 
     .hero-sub-header{
@@ -459,19 +456,20 @@ img {
     }
 
     .blog-topic-list-container{
-        width:90vw;
-        margin-left:5vw;
+        width:94vw;
+        margin-left:3vw;
         color:black !important;
         font-size:10px;
+        text-align: center;
     }
 
     .fltr-lnk {
-        padding-right:8px !important;
-        padding-left:8px !important;
+        padding-right:4px !important;
+        padding-left:4px !important;
     }
 
     .fltr-lnk:first-child {
-        padding-left:10px !important;
+        padding-left:1px !important;
     }
 
     .fltr-active{
@@ -481,6 +479,26 @@ img {
         border-top-left-radius: 10%;
         border-top-right-radius: 10%;
         font-weight:600;
+    }
+
+    .card-title{
+        font-size:14px !important;
+    }
+
+    .crd-cnt{
+        font-size:12px !important;
+    }
+
+    h1.hero-header {
+        margin-top:0px !important;
+    }
+
+    .subbtn, .subbtn1 {
+        margin-top:-30px !important;
+    }
+
+    .subbtn1 {
+        margin-left:20px;
     }
 }
 
@@ -637,7 +655,7 @@ img {
                 <span class="card-title" style="padding:5px 15px;">
                     <b>{{i.title}}</b>
                 </span>
-                <span style="padding:0px 15px 15px 15px;font-size:15px;line-height:18px;">
+                <span class="crd-cnt" style="padding:0px 15px 15px 15px;font-size:15px;line-height:18px;">
                     {{i.content|truncatechars:200}}
                     <a style="cursor:pointer;margin-left:15px;color:royalblue;" href="{% url 'BlogDetailPage' slug=i.slug %}">Read more</a>
                 </span>
@@ -653,37 +671,18 @@ img {
                     margin-left:15px;
                     color: #767676;" >{{ i.datePosted }}</span>
                     <span style="float:right;margin-right:25px;" > 
-                        <span style="font-family: Poppins;
-                            font-style: normal;
-                            font-weight: 500;
-                            font-size: 12px;
-                            line-height: 18px;
-                            
-                            color: #FA1D1D;
-                            " >
-                            Category
-                        </span> : {{ i.category }}</span>
+                    <span style="font-family: Poppins;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 12px;
+                        line-height: 18px;
+                        
+                        color: #FA1D1D;
+                        " >
+                        Category
+                    </span> : {{ i.category }}</span>
                 </div>
             </div>
-            <!-- <div class="card">
-                <div class="card-image">
-                        <div class="blog-card-preview-image">
-                            <video class="blog-card-preview-image" width="100%" height="100%" controls="" autoplay="true" muted="" loop="">
-                                <source src="/media/{{i.video}}" type="video/mp4">
-                            </video>
-                        </div>
-                        <span class="card-title">
-                            {{i.title}}
-                        </span>
-                        <div class="author-info">
-                            <img class="author-profile-pic" src="/media/{{i.author.avatar}}" alt="">
-                            <span class="author-name">{{i.author.full_name}}</span>
-                        </div>
-                </div>
-                <div class="card-action">
-                    <a class="read-more-link" style="color:black;text-decoration:none;font-weight:600;" href="{% url 'BlogDetailPage' slug=i.slug %}" style="cursor:pointer;">Read More</a>
-                </div>
-            </div> -->
         </div>
     {% endfor %}
 
@@ -719,7 +718,7 @@ img {
                         <div class="col-sm-12">
                             <div class="form-group" >
                                 <label for="exampleInputEmail1">Category</label>
-                                <select name="category" id="">
+                                <select class="form-control" name="category" id="">
                                     <option value="Electricity">Electricity</option>
                                     <option value="Productivity">Productivity</option>
                                     <option value="Automation">Automation</option>
