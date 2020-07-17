@@ -43,11 +43,13 @@ class Blog(models.Model):
     title = models.CharField(max_length=4000)
     content = models.TextField()
     video = models.FileField()
+    thumbnail = models.ImageField(null=True,blank=True)
     author = models.ForeignKey(Profile,on_delete=models.CASCADE)
     slug = models.SlugField()
     datePosted = models.DateField(auto_now_add=True)
     tags = models.CharField(max_length=1000)
     approved = models.BooleanField(default=False)
+    category = models.CharField(max_length=100,blank=True,null=True)
 
     def __str__(self):
         return self.title
@@ -57,7 +59,6 @@ class Blog(models.Model):
         str2 = self.datePosted
         self.slug = slugify(str1+str(str2))
         super(Blog,self).save(*args,**kwargs)
-        print(Subscribe.objects.all())
 
     class Meta:
         unique_together = ('title','datePosted')

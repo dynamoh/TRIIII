@@ -140,11 +140,13 @@
     }
 
     .cntus-link{
-        color:#EA4B32 !important;
+        color:white !important;
+        border-bottom:2px solid #18A0FB;
     }
 
 
 </style>
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
 
 <div class="container">
     <h3>Contact Us</h3>
@@ -165,7 +167,53 @@
         </div>
     </div>
 
-    <div class="contactForm">
+    <div class="supform" style="width:80vw;margin-left:0vw;position:relative;text-align: left !important;" >
+
+        <div class="mainform">
+            <form class="supformhtml"  id="Signupform"  method="POST">{% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="firstname" class="inputlabel">
+                                Name
+                            </label>
+                            <input id="firstname" type="text" required class="formclass" name="name" value="">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email" class="inputlabel">
+                                Email
+                            </label>
+                            <input id="email" required type="email" class="formclass" name="email" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="contact" class="inputlabel">
+                                Contact No.
+                            </label>
+                            <input id="contact" type="text" required class="formclass" name="contact" value="">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="message" class="inputlabel">
+                                Message
+                            </label>
+                            <textarea row="8" col="80" style="height:140px;" id="message" required class="formclass" name="message"></textarea>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" type="submit" >SUBMIT</button>
+            
+            </form>
+        </div>  
+      </div>
+
+    <!-- <div class="contactForm">
     <form method="POST">{% csrf_token %}
     <div class="row">
         <div class="col-md-6">
@@ -209,7 +257,7 @@
         </div>
         <button class="TriiiiBtn btn btn-primary my-2 my-sm-0" type="submit" >SUBMIT</button>
         </form>
-    </div>
+    </div> -->
 </div>
 
 

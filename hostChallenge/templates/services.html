@@ -46,7 +46,7 @@
         }
 
         .contactmore{
-            background-color:black;
+            background-color:#36414c;
             color:white;
             padding-top:80px;
             padding-bottom:15px;
@@ -78,7 +78,8 @@
         }
 
         .services-link{
-            color:#EA4B32 !important;
+            color:white !important;
+            border-bottom:2px solid #18A0FB;
         }
 
         @media (max-width:800px) {
@@ -108,6 +109,15 @@
             font-weight:600;
         }
 
+        .srv-btn {
+            padding:8px 20px;
+            border-radius:15px;
+            color:white !important;
+            background-color: #e7391fc7;
+            margin-left:15px !important;
+            margin-top:12px !important;
+        }
+
     </style>
 
     <div class="services-head" align="center">
@@ -125,7 +135,8 @@
                  troubles in some other domain or planning to put into effect any new technology, machinery, processes in your 
                  company we can help you out. While making sure that you get the possible results for your expenditure. We are 
                  always towards your Advantages, Optimization, Expansion, Upgration and Profit.  <br/>
-                To solve a challenge please click on <a style="color:blue !important;text-decoration:underline;" href="{% url 'ChallengesPage' %}" >Problem Solving</a>
+                To solve a challenge please click on 
+                <a class="srv-btn" href="{% url 'ChallengesPage' %}" >Problem Solving</a>
                 </p>
             </div>
 
@@ -144,7 +155,8 @@
                 low-Interest Rate loans on your solution (technology). We know that every Business requires capital so 
                 we can help you out. So that nothing can stop you from expanding your horizons leading your business to 
                 ultimately grow and making it profitable. <br/>
-                To know more about Funding <a style="color:blue !important;text-decoration:underline;" href="{% url 'ContactUS' %}" >Contact Us</a>
+                To know more about Funding 
+                <a class="srv-btn" href="{% url 'ContactUS' %}" >Contact Us</a>
 
                 </p>
             </div>
@@ -164,7 +176,8 @@
                 new in your organization and also in case you if one want to Optimize existing machinery, technology or 
                 operations. These chronicles lets you to be Up-to-Date regarding the new trends, shifts, directions and 
                 movement in respective industries. <br/>
-                To subscribe to our chronicles, please click on <a style="color:blue !important;text-decoration:underline;" href="{% url 'BlogPage' %}" >Chronicles</a>
+                To subscribe to our chronicles, please click on 
+                <a class="srv-btn" href="{% url 'BlogPage' %}" >Chronicles</a>
                 </p>
             </div>
             <div class="col-md-4">

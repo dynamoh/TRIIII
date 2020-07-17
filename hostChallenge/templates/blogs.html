@@ -3,7 +3,7 @@
 {% block content %}
 <style>
 element.style {
-    background: linear-gradient(to bottom, rgba(256, 256, 256, 0.6),rgba(256, 256, 256, 0.2)),url(https://www.viima.com/hubfs/Banners_and_backgrounds/viima-pink-ball-bg.jpg);
+    background: linear-gradient(to bottom, rgba(256, 256, 256, 0.6),rgba(256, 256, 256, 0.2)),url('{% static 'images/cback.svg' %}');
 }
 
 body{
@@ -24,24 +24,30 @@ body{
     background-size: cover !important;
     background-repeat: no-repeat !important;
     position: relative;
-    height:35vh !important;
+    height:45vh !important;
+    color:white;
 }
 
 h1.hero-header {
-    font-weight: 700;
-    font-size: 3em;
-    line-height: 1.2em;
-    letter-spacing: 0.5px;
-    font-family: Source Sans Pro, Noto Sans,Helvetica,Arial,sans-serif;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 55px;
+    text-align: center;
+    margin-top:25px !important;
+    color: #F7F7F7;
 }
 
 h2.hero-sub-header {
-    margin: 0;
-    font-size: 1.2em;
-    color: #666;
-    font-weight: bold;
-    line-height: 1.2em;
-    padding-top: 10px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #F7F7F7;
 }
 
 .imgText{
@@ -51,18 +57,20 @@ h2.hero-sub-header {
     text-align:center;
 }
 
-.subbtn,subbtn1{
+.subbtn {
+    margin-left:35%;
+}
+
+.subbtn, .subbtn1{
     width:180px !important;
-    position:absolute;
-    margin-top:-7vh !important;
-    margin-left:67vw;
+    margin-top:0vh !important;
+    background: #FA1D1D;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
 }
 
 .subbtn1{
-    width:180px !important;
-    margin-left:82vw;
-    position:absolute;
-    margin-top:-7vh !important;
+    margin-left:25px;
 }
 
 .TriiiiBtn{
@@ -103,7 +111,7 @@ h2.hero-sub-header {
 }
 
 .blog-topic-list-container {
-    margin-top:10vh;
+    margin-top:20vh;
 }
 
 .blog-topic-list-container .pill.selected:hover {
@@ -276,10 +284,70 @@ img {
     right: auto;
 }
 
-
-.nav-link:hover,.navvvlink:hover,.ftlink:hover {
-        color:#EA4B32 !important;
+.chronicles-link{
+    color:white !important;
+    border-bottom:2px solid #18A0FB;
 }
+
+.sccsmsg {
+    z-index:500;
+    margin-top:70px;
+    opacity:1;
+    width:75vw;
+    margin-left:6vw;
+    text-align:center;
+}
+
+.searchform input {
+    background: #F7F7F7;
+    border: 1px solid #9D9D9D;
+    box-sizing: border-box;
+    border-radius: 50px;
+    width:65vw;
+    padding:8px 120px 8px 35px;
+    outline:none !important;
+}
+
+.searchform {
+    margin-top:60px;
+    margin-left:15vw;
+}
+
+.srcbtn {
+    background: #18A0FB;
+    border-radius: 0px 50px 50px 0px;
+    position: absolute;
+    width: 120px;
+    right: -17vw;
+    z-index: 80;
+    height: auto;
+    padding-bottom: 12px;
+    border: none;
+}
+
+.blog-topic-list-container{
+    display: flex;
+    flex-direction: row;
+    width:50vw;
+    margin-left:20vw;
+    color:black !important;
+}
+
+.fltr-lnk:first-child{
+    padding-left:25px !important;
+}
+
+.fltr-lnk {
+    color:black !important;
+    padding-right:20px !important;
+    padding-left:20px !important;
+    padding-bottom:20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.33);
+    text-align: center;
+    background:none;
+}
+
+
 
 @media (max-width:800px) {
 
@@ -321,19 +389,17 @@ img {
     }
 
     .subbtn{
-        position:absolute;
-        margin-top:23vh !important;
-        margin-left:19vw;
+        margin-top:25px !important;
         width:120px !important;
         font-size:80%;
+        text-align: center;
     }
 
     .subbtn1{
-        position:absolute;
-        margin-top:23vh !important;
-        margin-left:3vw;
+        margin-top:25px !important;
         width:120px !important;
         font-size:80%;
+        text-align: center;
     }
 
     video{
@@ -362,43 +428,83 @@ img {
     }
 
     .subbtn{
-        top:13vh;
-        left:28vw;
+        /* top:13vh;
+        left:28vw; */
     }
 
     .subbtn1{
-        top:13vh;
-        left:0vw;
+        /* top:13vh;
+        left:0vw; */
     }
 
     .hero-header{
         font-size:18px !important;
+        margin-top:15px !important;
     }
 
     .hero-sub-header{
         font-size:14px !important;
+        line-height:18px !important;
+        margin-top:3px !important;
+    }
+
+    .searchform input {
+        width:85vw !important;
+        padding:8px 120px 8px 35px;
+        outline:none !important;
+    }
+
+    .srcbtn {
+        right:2vw !important;
+    }
+
+    .blog-topic-list-container{
+        width:90vw;
+        margin-left:5vw;
+        color:black !important;
+        font-size:10px;
+    }
+
+    .fltr-lnk {
+        padding-right:8px !important;
+        padding-left:8px !important;
+    }
+
+    .fltr-lnk:first-child {
+        padding-left:10px !important;
+    }
+
+    .fltr-active{
+        color:#18A0FB !important;
+        padding-bottom:17px !important;
+        border-bottom: 4px solid #18A0FB !important;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        font-weight:600;
     }
 }
 
-.chronicles-link{
-    color:#EA4B32 !important;
+.fltr-lnk:hover{
+    color:#18A0FB !important;
+    padding-bottom:19px;
+    border-bottom: 2px solid #18A0FB ;
 }
 
-.sccsmsg {
-    z-index:500;
-    margin-top:70px;
-    opacity:1;
-    width:75vw;
-    margin-left:6vw;
-    text-align:center;
+.fltr-active{
+    color:#18A0FB !important;
+    padding-bottom:16px !important;
+    border-bottom: 5px solid #18A0FB !important;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    font-weight:600;
 }
+
+
 
 </style>
 
-
-
     <div class="row-fluid ">
-        <div class="span12 hero-banner-slim " style="background: linear-gradient(to bottom, rgba(256, 256, 256, 0.6),rgba(256, 256, 256, 0.2)),url('{% static "images/back.jpg" %}');" data-widget-type="cell" data-x="0" data-w="12">
+        <div class="span12 hero-banner-slim " style="background: linear-gradient(90deg, rgba(16, 21, 28, 0.61) 0%, #29323C 100%),url('{% static "images/cback.svg" %}');" data-widget-type="cell" data-x="0" data-w="12">
 
         <div class="span12" style="" data-widget-type="cell" data-x="0" data-w="12">
 
@@ -407,9 +513,15 @@ img {
         <div class="imgText">
             <h1 class="hero-header">CHRONICLES</h1>
             <h2 class="hero-sub-header" 
-                style="color:black;text-transform:uppercase;font-family: 'pt-sans';font-weight:400 !important;"
+                style="text-align: center;color:white;margin-top:15px;font-size:18px;"
             >WE KNOW YOU ARE BUSY</br> ONE MINUTE KNOWLEDGE VIDEOS ON INDUSTRIES UPDATES AND TECHNOLOGIES THAT YOU NEED TO GROW YOUR BUSINESS</h2><br/>
-            
+            <div class="row" style="margin-top:12px !important;text-align: center;">
+                <button class="TriiiiBtn subbtn btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#subscribeModalj" type="submit" >Join Chronicles</button>
+                {% if user.is_authenticated %}
+                    <button class="TriiiiBtn subbtn1 btn btn-primary my-2 my-sm-0" id="subscribeSubmit" data-toggle="modal" data-target="#blogModal" >Post a Chronicle</button>
+                {% endif %}
+            </div>
+        
         </div>
         
         <div id="hs_form_target_form_680875575">
@@ -422,13 +534,7 @@ img {
         </div>
     </div>
 
-    <div class="row">
-        <button class="TriiiiBtn subbtn btn btn-primary my-2 my-sm-0" style="background-color:red !important;" data-toggle="modal" data-target="#subscribeModalj" type="submit" >Join Chronicles</button>
-        {% if user.is_authenticated %}
-            <button class="TriiiiBtn subbtn1 btn btn-primary my-2 my-sm-0" style="background-color:red !important;" id="subscribeSubmit" data-toggle="modal" data-target="#blogModal" >Post a Chronicle</button>
-        {% endif %}
-    </div>
-
+    
 
     {% comment %} <div class="container" align="center" style="width:90vw">
         <h4 style="margin-top:25px;" ><b></b> <br/>
@@ -447,20 +553,22 @@ img {
         <div class="searchBlogs">
 
         </div>
-        <div class="form-group col-sm-6 searchform" style="display:flex;margin-top:5px;margin-left:25vw;margin-bottom:-20px;" align="center">
-            <input type="text" class="form-control" id="exampleInputEmail1" name="searchBlog" aria-describedby="emailHelp" placeholder="Search Chronicles">
-            <button type="submit"  style="margin-top:2px;margin-left:15px;" class="TriiiiBtn btn btn-primary">Search</button>
+        <div class="form-group col-sm-6 searchform" style="position:relative;margin-bottom:50px !important;" >
+            <img style="position:absolute;left:28px;top:15px;height:12px;width:auto;z-index:80;color:#9D9D9D;"  src="{% static 'images/search.svg' %}" alt="">
+            <input style="position:absolute;z-index:70;" type="text"  id="exampleInputEmail1" name="searchBlog" aria-describedby="emailHelp" placeholder="Search Chronicles">
+            <button type="submit"  style="position:absolute;width:120px;" class="srcbtn btn btn-primary">Search</button>
         </div>
         
     </form>
 
 
     <div class="blog-topic-list-container" align="center">
-        <a href="#" onClick="filterBlogs(this);" class="pill topic-link">Electricity</a>
-        <a href="#" onClick="filterBlogs(this);" class="pill topic-link selected">Productivity</a>
-        <a href="#" onClick="filterBlogs(this);" class="pill topic-link">Manpower</a>
-        <a href="#" onClick="filterBlogs(this);" class="pill topic-link selected">Quality</a>
-        <a href="#" onClick="filterBlogs(this);" class="pill topic-link">Marketing</a>
+        <a href="#" onClick="filterBlogs(this);" class="fltr-lnk ">All</a>
+        <a href="#" onClick="filterBlogs(this);" class="fltr-lnk ">Electricity</a>
+        <a href="#" onClick="filterBlogs(this);" class="fltr-lnk ">Productivity</a>
+        <a href="#" onClick="filterBlogs(this);" class="fltr-lnk ">Automation</a>
+        <a href="#" onClick="filterBlogs(this);" class="fltr-lnk ">Quality Control</a>
+        <a href="#" onClick="filterBlogs(this);" class="fltr-lnk ">Marketing</a>
     </div>
 
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="subscribeModalj" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -521,30 +629,64 @@ img {
     
 <div class="container row" >
     {% for i in blogs %}
-        <div class="blog-post-item-card col-sm-6">
-            <div class="">
-                <div class="card">
-                    <div class="card-image">
-                            <div class="blog-card-preview-image">
-                                <video class="blog-card-preview-image" width="100%" height="100%" controls="" autoplay="true" muted="" loop="">
-                                    <source src="/media/{{i.video}}" type="video/mp4">
-                                </video>
-                            </div>
-                            <span class="card-title">
-                                {{i.title}}
-                            </span>
-                            <div class="author-info">
-                                <img class="author-profile-pic" src="/media/{{i.author.avatar}}" alt="">
-                                <span class="author-name">{{i.author.full_name}}</span>
-                            </div>
-                    </div>
-                    <div class="card-action">
-                        <a class="read-more-link" style="color:black;text-decoration:none;font-weight:600;" href="{% url 'BlogDetailPage' slug=i.slug %}" style="cursor:pointer;">Read More</a>
-                    </div>
+        <div class="col-sm-4">
+            <div class="card" style="height:540px;position:relative;" >
+                <div>
+                    <img  style="height:300px;width:100%;"  src="/media/{{i.thumbnail}}" alt="">
+                </div>
+                <span class="card-title" style="padding:5px 15px;">
+                    <b>{{i.title}}</b>
+                </span>
+                <span style="padding:0px 15px 15px 15px;font-size:15px;line-height:18px;">
+                    {{i.content|truncatechars:200}}
+                    <a style="cursor:pointer;margin-left:15px;color:royalblue;" href="{% url 'BlogDetailPage' slug=i.slug %}">Read more</a>
+                </span>
+                <span style="margin-left:15px;color:royalblue;">
+                    By : {{i.author.full_name}}
+                </span>
+                <div >
+                    <span style="font-family: Poppins;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 12px;
+                    line-height: 18px;
+                    margin-left:15px;
+                    color: #767676;" >{{ i.datePosted }}</span>
+                    <span style="float:right;margin-right:25px;" > 
+                        <span style="font-family: Poppins;
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 12px;
+                            line-height: 18px;
+                            
+                            color: #FA1D1D;
+                            " >
+                            Category
+                        </span> : {{ i.category }}</span>
                 </div>
             </div>
+            <!-- <div class="card">
+                <div class="card-image">
+                        <div class="blog-card-preview-image">
+                            <video class="blog-card-preview-image" width="100%" height="100%" controls="" autoplay="true" muted="" loop="">
+                                <source src="/media/{{i.video}}" type="video/mp4">
+                            </video>
+                        </div>
+                        <span class="card-title">
+                            {{i.title}}
+                        </span>
+                        <div class="author-info">
+                            <img class="author-profile-pic" src="/media/{{i.author.avatar}}" alt="">
+                            <span class="author-name">{{i.author.full_name}}</span>
+                        </div>
+                </div>
+                <div class="card-action">
+                    <a class="read-more-link" style="color:black;text-decoration:none;font-weight:600;" href="{% url 'BlogDetailPage' slug=i.slug %}" style="cursor:pointer;">Read More</a>
+                </div>
+            </div> -->
         </div>
     {% endfor %}
+
     <div class="modal fade bd-example-modal-lg"  id="blogModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -576,7 +718,22 @@ img {
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group" >
-                                <label for="exampleInputEmail1">Content</label>
+                                <label for="exampleInputEmail1">Category</label>
+                                <select name="category" id="">
+                                    <option value="Electricity">Electricity</option>
+                                    <option value="Productivity">Productivity</option>
+                                    <option value="Automation">Automation</option>
+                                    <option value="Quality Control">Quality Control</option>
+                                    <option value="Marketing">Marketing</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group" >
+                                <label for="exampleInputEmail1">Description</label>
                                 <textarea style="height:300px;" type="text" name="content" row="8" col="80" class="form-control" ></textarea>
                             </div>
                         </div>
@@ -587,6 +744,15 @@ img {
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Upload Video</label>
                                 <input type="file" name="video" class="form-control" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Upload thumbnail</label>
+                                <input type="file" name="thumbnail" class="form-control" >
                             </div>
                         </div>
                     </div>
@@ -604,6 +770,14 @@ img {
 </div>
 
 <script>
+    var category = '{{ category }}';
+    var ctgs = document.getElementsByClassName('fltr-lnk');
+    for(let i=0;i<ctgs.length;i++) {
+        if(ctgs[i].text.trim() == category.trim()) {
+            ctgs[i].className += 'fltr-active';
+        }
+    }
+
     function filterBlogs(ele) {
         var k = `<input type="text" hidden  name="filterBlog" value=${ele.innerHTML}>`
         $('.searchBlogs').append(k);

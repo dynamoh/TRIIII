@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
-    path('!nn0^@!!0n###/', admin.site.urls),
+    path('inno/admin/', admin.site.urls),
     path('',include('accounts.urls')),
     path('',include('hostChallenge.urls'))
 ]

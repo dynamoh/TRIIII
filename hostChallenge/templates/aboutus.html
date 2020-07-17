@@ -5,9 +5,9 @@
 {% comment %} <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet"> {% endcomment %}
 <style>
     .page-block--image.hello {
-        background-image: url('{% static 'images/battlebots.jpg' %}');
-        background-position: 0 55%;
-        height: 350px;
+        background-image: url('{% static 'images/industrial.jpg' %}');
+        background-position:center;
+        height: 550px;
     }
 
     .page-block--image {
@@ -62,13 +62,9 @@
         margin-left:5%;
     }
 
-    .nav-link:hover,.navvvlink:hover,.ftlink:hover {
-        color:#EA4B32 !important;
-    }
-
     @media (max-width:800px) {
             .page-block--image.hello {
-            background-image: url('{% static 'images/battlebots.jpg' %}');
+            background-image: url('{% static 'images/industrial.jpg' %}');
             height: 50vh;
             width:100vw;
         }
@@ -126,7 +122,8 @@
     }
 
     .abtus-link{
-        color:#EA4B32 !important;
+        color:white !important;
+        border-bottom:2px solid #18A0FB;
     }
 
 
@@ -148,19 +145,7 @@
     </div>
 
     <div class="container aboutusContent">
-        <div class="row" style="width:90%;margin-left:5%;margin-bottom:35px;">
-            <div class="col-sm-6">
-                <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
-                    <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
-                </video> 
-            </div>
-
-            <div class="col-sm-6">
-                <video width="100%" height="100%" controls="" autoplay="" muted="" loop="">
-                    <source src="{% static 'images/vid1234.mp4' %}" type="video/mp4">
-                </video> 
-            </div>
-        </div>
+        
         <p>TRIIII is a crowdsourcing and ​Open Innovation Marketplace that connects          organizations seeking solutions to important challenges they face with an unrivaled           network of expert problem solvers. both experts from within your industry, but more             importantly experts from outside of your industry that can offer diverse perspectives            and fresh insight. Through Open Innovation, we are going to solve these your industry              problems by finding new innovative technology and better ideas by using the wisdom             of crowds.  
             <br /><br />
             We are solving manufacturing business problems in a fast, cost-effective and efficient manner. It creates a win-win situation for both problem seekers as well as problem solvers. Open innovation is changing the world and it is time to make use and take advantage of new innovative technology through Open Innovation and crowdsourcing. 
@@ -169,12 +154,20 @@
         
 
         <div style="width:90%;margin-left:5%;margin-top:65px;">
-            <h2>Types of challenges  </h2><br /><br />
-            <h4>FUNDING </h4>
-            <p>In our funding program, we provide our customer demand with a suitable loan amount to the solutions.</p>                          
-            <br />
-            <h4>NON FUNDING </h4>
-            <p>In our non-funding program we provide only solutions to the seeker to grow your business.</p>  
+            <h2 style="text-align:center;" > <b> Types of challenges  </b></h2><br /><br />
+
+            <div class="row" style="border:1px solid black;" >
+                <div class="col-sm-6" style="padding:15px;border-right:1px solid black;" >
+                    <h4 style="margin-left:20px;font-weight:600;" >FUNDING </h4>
+                    <p>In our funding program, we provide our customer demand with a suitable loan amount to the solutions.</p>                          
+                </div>
+
+                <div class="col-sm-6" style="padding:15px;" >
+                    <h4 style="margin-left:20px;font-weight:600;" >NON FUNDING </h4>
+                    <p>In our non-funding program we provide only solutions to the seeker to grow your business.</p>
+                </div>
+            </div>
+              
         </div>
     
     </div>

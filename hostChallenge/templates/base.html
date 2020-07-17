@@ -44,8 +44,12 @@
         text-transform:uppercase;
     }
 
+    .nav-link {
+        padding-bottom:6px !important;
+    }
+
     .navbar{
-        background-color:black !important;
+        background-color:#36414c !important;
         z-index:50 !important;
 
     }
@@ -190,7 +194,7 @@
     }
 
     .pageFooter {
-        background: black;
+        background: #36414c;
         color:white;
         padding: 60px 0 40px 0;
         margin-top: 100px;
@@ -259,13 +263,9 @@
         display: inline-block;
     }
 
-    .nav-link:hover,.navvvlink:hover {
-        color:#EA4B32 !important;
-    }  
-
     .ftlink:hover {
         color:#EA4B32 !important;
-    }  
+    }
 
     .form-group label,.modal-title {
         color:black !important;
@@ -273,8 +273,12 @@
 
     @media (max-width: 800px) {
         .navbar{
-            background-color: black !important;
+            background-color: #36414c !important !important;
             z-index:50 !important;
+        }
+
+        .nav-link {
+            width:30vw !important;
         }
 
         .one{
@@ -317,6 +321,7 @@
     .ppolicy:hover{
         opacity:1;
     }
+
   </style>
 
 <body>
@@ -372,7 +377,11 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" > <a class="navvvlink login-link" href="{% url 'loginpage' %}" >Login</a> | <a class="navvvlink signup-link" href="{% url 'signuppage' %}" >SignUp</a> </a>
+                    <a class="nav-link" style="padding-bottom:0px !important;"  >
+                        <a class="navvvlink login-link" style="padding-bottom:6px !important;"  href="{% url 'loginpage' %}" >Login</a> 
+                        | 
+                        <a class="navvvlink signup-link" style="padding-bottom:6px !important;"  href="{% url 'signuppage' %}" >SignUp</a> 
+                    </a>
                 </li>
                 {% endif %}
 
