@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" src="{% static 'css/landing.css' %}"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   </head>
 
   <style>
@@ -319,7 +320,7 @@
     }
 
     .videoText-paragraph {
-        font-family: Montserrat;
+        font-family: 'Montserrat';
         font-style: normal;
         font-weight: normal;
         font-size: 23px;
@@ -355,7 +356,7 @@
     }
 
     .section-2-head{
-        font-family: Montserrat;
+        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 500;
         font-size: 28px;
@@ -384,7 +385,7 @@
     }
 
     .icn-container span {
-        font-family: Roboto;
+        font-family: 'Roboto';
         font-style: normal;
         font-weight: bold;
         font-size: 16px;
@@ -412,8 +413,15 @@
     }
 
     .icn2-container{
-        font-weight:600;
         margin-bottom:15px !important;
+        font-family: 'montserrat',sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 27px;
+        text-align: center;
+
+        color: #434343;
     }
 
     .triii-intro{
@@ -430,7 +438,7 @@
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: 16px;
         line-height: 24px;
         text-align: center;
@@ -440,7 +448,7 @@
     }
 
     .intro-content h3{
-        font-family: Montserrat;
+        font-family: 'Montserrat', sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 36px;
@@ -451,7 +459,7 @@
     }
 
     .intro-content p{
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: 18px;
         line-height: 27px;
         color: #FFFFFF;
@@ -525,7 +533,7 @@
 
         
         .videoText-paragraph {
-            font-family: Montserrat;
+            font-family: 'montserrat',sans-serif;
             font-style: normal;
             font-weight: normal;
             font-size: 15px;
@@ -671,6 +679,13 @@
         flex-direction: column;
     }
 
+    .intro-content-para {
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 18px !important;
+        line-height: 27px !important;
+        color: #FFFFFF;
+    }
+
     
 
   </style>
@@ -734,20 +749,7 @@
                             <a class="navvvlink signup-link" style="padding-bottom:6px !important;" href="{% url 'signuppage' %}" >SignUp</a> 
                         </a>
                     </li>
-                    {% endif %}
-
-                    {% comment %} <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li> {% endcomment %}
-                    
+                    {% endif %}                    
                 </ul>
                 
             </div>
@@ -909,7 +911,7 @@
         <h2 class="section-2-head" >Our customers no longer struggle with</h2>
         <p class="section-3-sub-head" >Reduce Your Factory Costs in a cost-effective way</p>
         <div class="section-underline" ></div>
-        <div class="row" style="margin-top:80px;text-align: center;">
+        <div class="row" style="margin-top:80px;text-align:center;">
             <div class="col-sm-3 mtb-cnt">
                 <div class="icn2-container" >
                     <img src="{% static 'images/icon7.svg' %}" alt="">
@@ -979,7 +981,7 @@
 
             <div class="col-sm-8 intro-content">
                 <h3>TRIIII</h3>
-                <p>
+                <p class="intro-content-para" >
                     We help small-medium enterprises solve their technology and marketing difficulties by 
                     connection with the network of New Tech Startups and experts, 
                     So That can provide Cost Effective Solution and New Technology to solve their problem.
@@ -1008,7 +1010,13 @@
         <div class="section-underline" style="width:10vw;" ></div>
         <div class="row" style="margin-top:80px;text-align: center;">
             <div class="col-sm-6 chronicles-hpg"  style="margin-top:80px;">
-                <p>
+                <p style="font-family: 'poppins',sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 30px;
+                
+                color: #565656;" >
                     WE KNOW YOU ARE BUSY ONE MINUTE KNOWLEDGE VIDEOS ON 
                     INDUSTRIES UPDATES AND TECHNOLOGIES THAT YOU NEED TO GROW YOUR BUSINESS.
                 </p>
