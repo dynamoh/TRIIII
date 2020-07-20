@@ -48,6 +48,7 @@ def blogsPage(request):
     if request.method == 'POST':
         filterBlog = request.POST.get('filterBlog')
         searchBlog = request.POST.get('searchBlog')
+        search_sub_category = request.POST.get('search_sub_category')
         if filterBlog!='' and filterBlog is not None:
             if filterBlog == 'All':
                 blogs = Blog.objects.filter(approved=True)
@@ -55,7 +56,7 @@ def blogsPage(request):
                 blogs = Blog.objects.filter(category=filterBlog).filter(approved=True)
                 category = filterBlog
         else:
-            blogs = Blog.objects.filter(Q(title__icontains = searchBlog)|Q(content__icontains = searchBlog)).filter(approved=True)
+            blogs = Blog.objects.filter(Q(title__icontains = searchBlog)|Q(content__icontains = searchBlog)).filter(sub_category=search_sub_category).filter(approved=True)
 
     return render(request,'blogs.html',{'blogs':blogs,'category':category})
 
@@ -212,10 +213,15 @@ def createBlog(request):
         tags = request.POST.get('tags')
         content = request.POST.get('content')
         category = request.POST.get('category')
+        sub_category = request.POST.get('sub_category')
         video = request.FILES.get('video')
         thumbnail = request.FILES.get('thumbnail')
         profile = Profile.objects.filter(user_id = request.user).first()
-        Blog.objects.create(title=title,tags=tags,content=content,category=category,video=video,author=profile,thumbnail=thumbnail,approved=False)
+        Blog.objects.create(
+                title=title, tags=tags, content=content, 
+                category=category,video=video,author=profile,
+                thumbnail=thumbnail,sub_category=sub_category,
+                approved=False)
 
         subs = Subscribe.objects.all()
 

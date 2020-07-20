@@ -53,7 +53,7 @@ h2.hero-sub-header {
 .imgText{
     position:absolute;
     margin-top:2vh;
-    margin-left:6vw;
+    margin-left:10vw;
     text-align:center;
 }
 
@@ -293,23 +293,23 @@ img {
     background: #F7F7F7;
     border: 1px solid #9D9D9D;
     box-sizing: border-box;
-    border-radius: 50px;
-    width:65vw;
-    padding:8px 120px 8px 35px;
+    border-radius: 5px;
+    width:50vw;
+    padding:8px 120px 8px 175px;
     outline:none !important;
 }
 
 .searchform {
     margin-top:60px;
-    margin-left:15vw;
+    margin-left:23.5vw;
 }
 
 .srcbtn {
     background: #18A0FB;
-    border-radius: 0px 50px 50px 0px;
+    border-radius: 0px 5px 5px 0px;
     position: absolute;
     width: 120px;
-    right: -17vw;
+    right: -2vw;
     z-index: 80;
     height: auto;
     padding-bottom: 12px;
@@ -338,7 +338,19 @@ img {
     background:none;
 }
 
-
+.search-ch-drp{
+    position:absolute;
+    width:150px;
+    padding:10px 12px 10px 12px;
+    border: 1px solid #9D9D9D;
+    border-bottom:none;
+    border-radius: 5px;
+    z-index:89;
+    background: #F7F7F7;
+    outline: none;
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;
+}
 
 @media (max-width:800px) {
 
@@ -355,8 +367,8 @@ img {
 
     .imgText{
         position:absolute;
-        margin-top:2vh;
-        margin-left:4vw;
+        margin-top:0vh;
+        margin-left:-1vw;
         text-align:center;
         font-size:80%;
         box-sizing:border-box;
@@ -441,17 +453,18 @@ img {
 
     .searchform input {
         width:85vw !important;
-        padding:8px 120px 8px 35px;
+        padding:8px 50px 8px 110px !important;
         outline:none !important;
     }
 
     .srcbtn {
         right:2vw !important;
+        width:80px !important;
     }
 
     .blog-topic-list-container{
-        width:94vw;
-        margin-left:3vw;
+        width:86vw;
+        margin-left:7vw;
         color:black !important;
         font-size:10px;
         text-align: center;
@@ -494,6 +507,10 @@ img {
     .subbtn {
         margin-left:20px !important;
     }
+
+    .search-ch-drp{
+        width:100px !important;
+    }
 }
 
 .fltr-lnk:hover{
@@ -518,7 +535,7 @@ img {
     <div class="row-fluid ">
         <div class="span12 hero-banner-slim " style="background: linear-gradient(90deg, rgba(16, 21, 28, 0.61) 0%, #29323C 100%),url('{% static "images/cback.svg" %}');" data-widget-type="cell" data-x="0" data-w="12">
 
-        <div class="span12" style="" data-widget-type="cell" data-x="0" data-w="12">
+        <div class="span12" data-widget-type="cell" data-x="0" data-w="12">
 
         <div class="row-fluid ">
 
@@ -566,7 +583,19 @@ img {
 
         </div>
         <div class="form-group col-sm-6 searchform" style="position:relative;margin-bottom:50px !important;" >
-            <img style="position:absolute;left:28px;top:15px;height:12px;width:auto;z-index:80;color:#9D9D9D;"  src="{% static 'images/search.svg' %}" alt="">
+            <select name="search_sub_category" class="search-ch-drp" >
+                <option value="textile">Textile</option>
+                <option value="plastic">Plastic</option>
+                <option value="wood">Wood</option>
+                <option value="Cable">Cable</option>
+                <option value="Paper">Paper</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Automation">Automation</option>
+                <option value="Glass">Glass</option>
+                <option value="Steel">Steel</option>
+                <option value="Other">Other</option>
+            </select>
+            <!-- <img style="position:absolute;left:28px;top:15px;height:12px;width:auto;z-index:80;color:#9D9D9D;"  src="{% static 'images/search.svg' %}" alt=""> -->
             <input style="position:absolute;z-index:70;" type="text"  id="exampleInputEmail1" name="searchBlog" aria-describedby="emailHelp" placeholder="Search Chronicles">
             <button type="submit"  style="position:absolute;width:120px;" class="srcbtn btn btn-primary">Search</button>
         </div>
@@ -709,7 +738,7 @@ img {
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <div class="form-group" >
                                 <label for="exampleInputEmail1">Category</label>
                                 <select class="form-control" name="category" id="">
@@ -718,6 +747,24 @@ img {
                                     <option value="Automation">Automation</option>
                                     <option value="Quality Control">Quality Control</option>
                                     <option value="Marketing">Marketing</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+                        <div class="col-sm-6">
+                            <div class="form-group" >
+                                <label for="exampleInputEmail1">Sub Category</label>
+                                <select class="form-control" name="sub_category" id="">
+                                    <option value="textile">Textile</option>
+                                    <option value="plastic">Plastic</option>
+                                    <option value="wood">Wood</option>
+                                    <option value="Cable">Cable</option>
+                                    <option value="Paper">Paper</option>
+                                    <option value="Electronic">Electronic</option>
+                                    <option value="Automation">Automation</option>
+                                    <option value="Glass">Glass</option>
+                                    <option value="Steel">Steel</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                         </div>

@@ -50,6 +50,7 @@ class Blog(models.Model):
     tags = models.CharField(max_length=1000)
     approved = models.BooleanField(default=False)
     category = models.CharField(max_length=100,blank=True,null=True)
+    sub_category = models.CharField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.title
