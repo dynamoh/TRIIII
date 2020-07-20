@@ -56,7 +56,9 @@ def blogsPage(request):
                 blogs = Blog.objects.filter(category=filterBlog).filter(approved=True)
                 category = filterBlog
         else:
-            blogs = Blog.objects.filter(Q(title__icontains = searchBlog)|Q(content__icontains = searchBlog)).filter(sub_category=search_sub_category).filter(approved=True)
+            blogs = Blog.objects.filter(Q(title__icontains = searchBlog)|Q(content__icontains = searchBlog)).filter(approved=True)
+            if search_sub_category != "":
+                blogs = blogs.filter(sub_category=search_sub_category)
 
     return render(request,'blogs.html',{'blogs':blogs,'category':category})
 
