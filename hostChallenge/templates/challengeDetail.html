@@ -221,9 +221,37 @@
             </div>
             {% endif %}
 
+            {% if user.is_admin %}
+                <div class="abstract">
+                    <p class="abstractHead">Submissions</p>
+                    <ol>
+                        {% for sub in subs %}
+                            <li>
+                                <div class="chfirst row">
+                                    {% if sub.image %}
+                                    <div class="col-md-2">
+                                        <img style="margin-top:-1px !important;margin-bottom:12px;" src="/media/{{sub.image}}" class="imgThumb" >
+                                    </div>
+                                    {% endif %}
+                    
+                                    <div class="col-md-8">
+                                        <p class="challengeName"> <b>Submitted By:</b> {{ sub.submitted_by.full_name }} | {{ sub.submitted_by.phone_number }} </p>
+                                        <span class="deadline">Submitted on : <b> {{sub.submitted_on}} </b> </span><br/>
+                                        {% if sub.sfile %}
+                                            <span class="posted">Solution file: <a href="{{ sub.sfile.url }}" download >download</a> </span> <br>
+                                        {% endif %}
+                                        <p class="tags">  {{sub.description}} </p>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            {% endif %}
+
         </div>
 
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated and not user.is_admin %}
             {% if challenge.status == "OPEN" %}
                 <button class="TriiiiBtn" style="margin-top:30px;margin-left:88%;" data-toggle="modal" data-target=".bd-example-modal-lg"  >Submit Solution</button>
             {% endif %}

@@ -140,6 +140,7 @@ def challengesPage(request):
 
 def challengeDetail(request,slug):
     challenge_obj = get_object_or_404(Challenges, slug=slug)
+    subs = Submissions.objects.filter(challenge=challenge_obj)
     if request.method == 'POST' and request.user.is_authenticated:
         description = request.POST.get('desc')
         image = request.FILES.get('image')
@@ -150,8 +151,10 @@ def challengeDetail(request,slug):
         ch = Challenges.objects.filter(title=chall).filter(date_posted=datepos).first()
         pro = Profile.objects.filter(user_id=request.user).first()
         Submissions.objects.create(challenge=ch,description=description,image=image,sfile=file1,submitted_by=pro)
-        return render(request,'challengeDetail.html',{'challenge':challenge_obj,'message':'Your Solution has been Submitted.'})
-    return render(request,'challengeDetail.html',{'challenge':challenge_obj})
+
+        subs = Submissions.objects.filter(challenge=challenge_obj)
+        return render(request,'challengeDetail.html',{'challenge':challenge_obj,'subs':subs,'message':'Your Solution has been Submitted.'})
+    return render(request,'challengeDetail.html',{'challenge':challenge_obj, 'subs':subs,})
 
 def services(request):
     return render(request,'services.html')

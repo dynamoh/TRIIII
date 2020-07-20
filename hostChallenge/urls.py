@@ -26,8 +26,8 @@ urlpatterns = [
     path('createBlog/',createBlog,name="CreateBlog"),
     path('subscribe/',subscribenewsLetter,name="Subscribe"),
     path('privacy/',privacyPolicy,name="PrivacyPolicy"),
-    path('resources',resources,name="Resources"),
-    path('termsofuse',termsofuse,name="TermsOfUse")
+    path('resources/',resources,name="Resources"),
+    path('termsofuse/',termsofuse,name="TermsOfUse")
 ]
 
 if settings.DEBUG:
