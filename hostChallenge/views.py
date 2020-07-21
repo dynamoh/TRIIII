@@ -31,7 +31,7 @@ def landingPage(request):
                                 contact_person=contact_person,
                                 number=number)
         return HttpResponseRedirect('/')
-    return render(request,'landingPage.html')
+    return render(request,'index.html')
 
 def ContactUsPage(request):
     if request.method=='POST':

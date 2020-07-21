@@ -5,9 +5,10 @@
 {% comment %} <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet"> {% endcomment %}
 <style>
     .page-block--image.hello {
-        background-image: url('{% static 'images/industrial.jpg' %}');
-        background-position:center;
-        height: 550px;
+        background: url('{% static 'images/aboutus.png' %}');
+        background-size:contain;
+        background-repeat:no-repeat;
+        height: 450px;
     }
 
     .page-block--image {
@@ -64,7 +65,7 @@
 
     @media (max-width:800px) {
             .page-block--image.hello {
-            background-image: url('{% static 'images/industrial.jpg' %}');
+            background-image: url('{% static 'images/aboutus.png' %}');
             height: 50vh;
             width:100vw;
         }
